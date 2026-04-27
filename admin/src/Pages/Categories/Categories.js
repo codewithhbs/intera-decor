@@ -5,7 +5,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import SubCategory from "./SubCategory";
 
-const API = "http://localhost:7912/api/v1"
+const API = "https://api.interdecor.adsdigitalmedia.comapi/v1"
 const IMAGEAPI = "http://localhost:7500";
 ;
 

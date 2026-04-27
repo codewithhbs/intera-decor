@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import React, { useState, useEffect, useRef } from "react";
 import { Leaf, ArrowRight, BookOpen } from "lucide-react";
-import "./BgMoving.css";
+import "./Bgmoving.css";
 
 /* ─────────────────────────────────────────────────
    Unsplash handicraft background images

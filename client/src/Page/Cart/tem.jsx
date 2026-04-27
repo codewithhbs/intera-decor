@@ -145,7 +145,7 @@ const CheckoutFlow = () => {
       setGuestSubmitting(true);
 
       const res = await axios.post(
-        "http://localhost:7912/api/v1/create_user_from_cart",
+        "https://api.interdecor.adsdigitalmedia.comapi/v1/create_user_from_cart",
         {
           Email,
           ContactNumber,
@@ -255,7 +255,7 @@ const CheckoutFlow = () => {
           },
           handler: function (response) {
             axios
-              .post("http://localhost:7912/api/v1/verify-payment", response)
+              .post("https://api.interdecor.adsdigitalmedia.comapi/v1/verify-payment", response)
               .then((responseData) => {
                 if (responseData.data.success) {
                   // ✅ ab cart clear karo

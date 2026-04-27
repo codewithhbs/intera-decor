@@ -1,2 +1,2 @@
-export const API='http://localhost:7912/api/v1/'
-export const IMAGEAPI='http://localhost:7912'
+export const API='https://api.interdecor.adsdigitalmedia.comapi/v1/'
+export const IMAGEAPI='http://api.interdecor.adsdigitalmedia.com'

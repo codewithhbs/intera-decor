@@ -108,7 +108,7 @@ const handleClose = () => {
       };
 
       const res = await axios.post(
-        "http://localhost:7912/api/v1/support-request",
+        "https://api.interdecor.adsdigitalmedia.comapi/v1/support-request",
         payload
       );
 

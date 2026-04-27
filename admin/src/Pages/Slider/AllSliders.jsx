@@ -9,7 +9,7 @@ const AllSliders = () => {
 
   const fetchSliders = async () => {
     try {
-      const res = await axios.get("http://localhost:7912/api/v1/HeroSlider");
+      const res = await axios.get("https://api.interdecor.adsdigitalmedia.comapi/v1/HeroSlider");
       setSliders(res.data.data || []);
     } catch (err) {
       setError("Failed to fetch sliders");
@@ -27,7 +27,7 @@ const AllSliders = () => {
     if (!window.confirm("Are you sure you want to delete this slider?")) return;
 
     try {
-      await axios.delete(`http://localhost:7912/api/v1/HeroSlider/${id}`);
+      await axios.delete(`https://api.interdecor.adsdigitalmedia.comapi/v1/HeroSlider/${id}`);
       alert("Slider deleted successfully");
       fetchSliders(); // Refresh list
     } catch (err) {
@@ -69,7 +69,7 @@ const AllSliders = () => {
                 <td className="px-6 py-4">
                   {slider.imageUrl && (
                     <img
-                      src={`http://localhost:7912${slider.imageUrl}`}
+                      src={`http://api.interdecor.adsdigitalmedia.com${slider.imageUrl}`}
                       alt={slider.imageAlt || "slider"}
                       className="w-16 h-16 object-cover rounded-lg border"
                     />

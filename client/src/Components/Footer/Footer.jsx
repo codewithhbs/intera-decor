@@ -20,9 +20,9 @@ import {
   ShieldCheck,
   Lock,
 } from "lucide-react";
-import "./footer.css";
+import "./Footer.css";
 
-const API = "http://localhost:7912/api/v1";
+const API = "https://api.interdecor.adsdigitalmedia.comapi/v1";
 
 const quickLinks = [
   { label: "Home", to: "/" },

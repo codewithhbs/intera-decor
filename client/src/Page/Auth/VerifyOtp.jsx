@@ -94,7 +94,7 @@ const VerifyOtp = ({ onVerificationSuccess }) => {
 
         try {
             // Using the same API endpoint as the Otp component
-            const response = await fetch('http://localhost:7912/api/v1/verify-otp', {
+            const response = await fetch('https://api.interdecor.adsdigitalmedia.comapi/v1/verify-otp', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -141,7 +141,7 @@ const VerifyOtp = ({ onVerificationSuccess }) => {
 
         try {
             // Using the same API endpoint as the Otp component
-            const response = await fetch('http://localhost:7912/api/v1/resend-otp', {
+            const response = await fetch('https://api.interdecor.adsdigitalmedia.comapi/v1/resend-otp', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

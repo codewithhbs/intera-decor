@@ -53,7 +53,7 @@ const CreateOrUpdateSlider = () => {
     if (isEdit) {
       const fetchSlider = async () => {
         try {
-          const res = await axios.get(`http://localhost:7912/api/v1/HeroSlider/${id}`);
+          const res = await axios.get(`https://api.interdecor.adsdigitalmedia.comapi/v1/HeroSlider/${id}`);
           const slider = res.data.data;
 
           setFormData({
@@ -171,8 +171,8 @@ const handleSubmit = async (e) => {
 
   try {
     const url = isEdit
-      ? `http://localhost:7912/api/v1/HeroSlider/${id}`
-      : "http://localhost:7912/api/v1/HeroSlider";
+      ? `https://api.interdecor.adsdigitalmedia.comapi/v1/HeroSlider/${id}`
+      : "https://api.interdecor.adsdigitalmedia.comapi/v1/HeroSlider";
 
     const config = {
       headers: {
@@ -320,7 +320,7 @@ const handleSubmit = async (e) => {
           <input type="file" accept="image/*" onChange={handleImageChange} className="block w-full text-sm text-gray-500 file:mr-4 file:py-3 file:px-6 file:rounded-lg file:border-0 file:bg-amber-50 file:text-amber-700" />
           {imagePreview && (
             <div className="mt-4">
-              <img src={`http://localhost:7912${imagePreview}`} alt="Preview" className="w-64 h-40 object-cover rounded-xl border shadow" />
+              <img src={`http://api.interdecor.adsdigitalmedia.com${imagePreview}`} alt="Preview" className="w-64 h-40 object-cover rounded-xl border shadow" />
             </div>
           )}
         </div>

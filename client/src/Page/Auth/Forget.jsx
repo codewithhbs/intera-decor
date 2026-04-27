@@ -33,7 +33,7 @@ const Forget = () => {
     setErrorMessage('')
     setSuccessMessage('')
     try {
-      const response = await fetch('http://localhost:7912/api/v1/Password-Change-Request', {
+      const response = await fetch('https://api.interdecor.adsdigitalmedia.comapi/v1/Password-Change-Request', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
@@ -78,7 +78,7 @@ const Forget = () => {
     setErrorMessage('')
     setSuccessMessage('')
     try {
-      const response = await fetch('http://localhost:7912/api/v1/Password-Change-Request', {
+      const response = await fetch('https://api.interdecor.adsdigitalmedia.comapi/v1/Password-Change-Request', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
