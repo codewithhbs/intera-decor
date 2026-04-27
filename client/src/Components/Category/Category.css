@@ -1,0 +1,159 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+.category-section {
+    padding: 60px 0;
+    background: #fff;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 15px;
+}
+
+/* Heading */
+.heading {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.heading p {
+    color: #2a635e;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.heading h2 {
+    font-size: 32px;
+    font-weight: 600;
+    color: #222;
+}
+
+.heading h2 span {
+    color: #c8973a;
+}
+
+/* Grid */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+/* Card */
+.category-card {
+    text-decoration: none;
+    color: #000;
+    transition: 0.3s;
+    border: 1px solid #00000029;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.category-img {
+    position: relative;
+    overflow: hidden;
+}
+
+.category-img img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: 0.5s;
+    border-radius: 5px;
+}
+
+.category-card:hover img {
+    transform: scale(1.1);
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.category-card:hover .overlay {
+    opacity: 1;
+}
+
+/* Content */
+.category-content {
+    margin-top: 10px;
+}
+
+.category-content h3 {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.category-content span {
+    font-size: 13px;
+    color: #c8973a;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Button */
+.view-all {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.view-all a {
+    border: 1px solid #030303;
+    padding: 10px 25px;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #050a30;
+    border-radius: 30px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: 0.3s;
+}
+
+.view-all a:hover {
+    background: #ffffff;
+    color: #050a30;
+}
+
+/* Skeleton */
+.skeleton {
+    height: 250px;
+    background: #eee;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.5;
+    }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .category-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

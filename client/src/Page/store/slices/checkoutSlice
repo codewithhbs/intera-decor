@@ -1,0 +1,265 @@
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
+
+// Async thunk for fetching settings
+export const fetchSettings = createAsyncThunk(
+  "checkout/fetchSettings",
+  async (_, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.get("http://localhost:7912/api/v1/admin/settings");
+      return data.data;
+    } catch (error) {
+      return rejectWithValue(error.response?.data?.message || "Failed to fetch settings");
+    }
+  }
+);
+
+// Async thunk for creating order
+export const createOrder = createAsyncThunk(
+  "checkout/createOrder",
+  async ({ orderData, token }, { rejectWithValue }) => {
+    try {
+      const response = await fetch("http://localhost:7912/api/v1/add-order", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(orderData),
+      });
+
+      const result = await response.json();
+      console.log("create order result", result);
+
+      if (!response.ok || !result.success) {
+        return rejectWithValue(result.message || "Failed to create order");
+      }
+
+      // For ONLINE payment → return full result (contains razorpayOrderId etc.)
+      if (result.razorpayOrderId) {
+        return result;
+      }
+
+      // For COD → clear cart
+      sessionStorage.removeItem("cartItems");
+      sessionStorage.removeItem("appliedCoupon");
+
+      return result.order;
+    } catch (error) {
+      return rejectWithValue(error.message || "Failed to create order");
+    }
+  }
+);
+
+const checkoutSlice = createSlice({
+  name: "checkout",
+  initialState: {
+    currentStep: 1,
+    loading: false,
+    error: null,
+    success: false,
+
+    // Settings from backend
+    settings: null,           // ← will hold full settings object
+    qrCodeUrl: "",
+
+    // Address
+    address: {
+      addressLine: "",
+      city: "",
+      state: "",
+      postCode: "",
+      mobileNumber: "",
+    },
+
+    // Payment
+    paymentMethod: "",        // "ONLINE" | "COD"
+    transactionId: "",
+
+    // Order calculations
+    cartSubtotal: 0,
+    shipping: 0,
+    orderTotal: 0,
+    discountAmount: 0,
+    currencySymbol: "₹",      // default fallback
+taxAmount: 0,
+    // Coupon
+    appliedCoupon: null,
+
+    // Final order
+    createdOrder: null,
+  },
+
+  reducers: {
+    setCurrentStep: (state, action) => {
+      state.currentStep = action.payload;
+    },
+    setError: (state, action) => {
+      state.error = action.payload;
+    },
+    clearError: (state) => {
+      state.error = null;
+    },
+    setSuccess: (state, action) => {
+      state.success = action.payload;
+    },
+    updateAddress: (state, action) => {
+      state.address = { ...state.address, ...action.payload };
+    },
+    setPaymentMethod: (state, action) => {
+      state.paymentMethod = action.payload;
+    },
+    setTransactionId: (state, action) => {
+      state.transactionId = action.payload;
+    },
+
+    // ────────────────────────────────────────────────────────────────
+    // Most important change: use real settings for shipping logic
+    // ────────────────────────────────────────────────────────────────
+   calculateTotals: (state, action) => {
+  const { cartItems, appliedCoupon } = action.payload;
+
+  if (!cartItems || !Array.isArray(cartItems)) {
+    state.cartSubtotal = 0;
+    state.shipping = 0;
+    state.orderTotal = 0;
+    state.taxAmount = 0;
+    return;
+  }
+
+  const subtotal = cartItems.reduce((sum, item) => {
+    return sum + (item.price_after_discount || item.price || 0) * (item.quantity || 1);
+  }, 0);
+
+  const settings = state.settings || {};
+
+  const taxRate = Number(settings.taxRate) || 5;
+  const isTaxEnabled = settings.isTaxEnables ?? true;
+  const freeThreshold = Number(settings.freeShippingThreshold) || 999;
+  const baseShipping = Number(settings.shippingCost) || 80;
+
+  const currency = settings.currency || "INR";
+  const symbol =
+    currency === "INR" ? "₹" :
+    currency === "USD" ? "$" :
+    "₹";
+
+  /* 1️⃣ SHIPPING */
+  const shippingCost = subtotal >= freeThreshold ? 0 : baseShipping;
+
+  /* 2️⃣ DISCOUNT */
+  let discount = 0;
+
+  if (appliedCoupon && appliedCoupon.discountAmount > 0) {
+    state.appliedCoupon = appliedCoupon;
+    discount = appliedCoupon.discountAmount;
+    state.discountAmount = discount;
+  } else {
+    state.appliedCoupon = null;
+    state.discountAmount = 0;
+  }
+
+  /* 3️⃣ TAXABLE AMOUNT */
+  const taxableAmount = subtotal - discount + shippingCost;
+
+  /* 4️⃣ TAX */
+  let taxAmount = 0;
+
+  if (isTaxEnabled && taxRate > 0) {
+    taxAmount = taxableAmount * (taxRate / 100);
+  }
+
+  /* 5️⃣ FINAL TOTAL */
+  const finalTotal = taxableAmount + taxAmount;
+
+  /* STATE UPDATE */
+  state.cartSubtotal = subtotal;
+  state.shipping = shippingCost;
+  state.taxAmount = taxAmount;
+  state.currencySymbol = symbol;
+  state.orderTotal = Math.max(0, finalTotal);
+},
+    removeCoupon: (state) => {
+      state.appliedCoupon = null;
+      state.discountAmount = 0;
+      // Recalculate without coupon (you can also dispatch calculateTotals again)
+      state.orderTotal = state.cartSubtotal + state.shipping;
+      sessionStorage.removeItem("appliedCoupon");
+    },
+
+    loadAppliedCoupon: (state) => {
+      const stored = sessionStorage.getItem("appliedCoupon");
+      if (stored) {
+        try {
+          const couponData = JSON.parse(stored);
+          state.appliedCoupon = couponData;
+          state.discountAmount = couponData.discountAmount || 0;
+        } catch (e) {
+          console.warn("Invalid coupon in sessionStorage", e);
+        }
+      }
+    },
+
+    resetCheckout: (state) => {
+      state.currentStep = 1;
+      state.loading = false;
+      state.error = null;
+      state.success = false;
+      state.address = { addressLine: "", city: "", state: "", postCode: "", mobileNumber: "" };
+      state.paymentMethod = "";
+      state.transactionId = "";
+      state.appliedCoupon = null;
+      state.discountAmount = 0;
+      state.createdOrder = null;
+    },
+  },
+
+  extraReducers: (builder) => {
+    builder
+      // ── Settings ─────────────────────────────────────────────────────
+      .addCase(fetchSettings.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchSettings.fulfilled, (state, action) => {
+        state.loading = false;
+        state.settings = action.payload;
+        state.qrCodeUrl = action.payload.paymentImage || "";
+      })
+      .addCase(fetchSettings.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
+
+      // ── Create Order ─────────────────────────────────────────────────
+      .addCase(createOrder.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(createOrder.fulfilled, (state, action) => {
+        state.loading = false;
+        state.success = true;
+        state.createdOrder = action.payload;
+      })
+      .addCase(createOrder.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      });
+  },
+});
+
+export const {
+  setCurrentStep,
+  setError,
+  clearError,
+  setSuccess,
+  updateAddress,
+  setPaymentMethod,
+  setTransactionId,
+  calculateTotals,
+  removeCoupon,
+  loadAppliedCoupon,
+  resetCheckout,
+} = checkoutSlice.actions;
+
+export default checkoutSlice.reducer;
