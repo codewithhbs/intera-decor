@@ -1,9 +1,10 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const redis = require('redis');
-const dotenv = require('dotenv');
+
 const nodemailer = require("nodemailer");
-dotenv.config();
+
 const cookieParser = require('cookie-parser')
 const ConnectDB = require('./database/database.config');
 const route = require('./routes/routes');
