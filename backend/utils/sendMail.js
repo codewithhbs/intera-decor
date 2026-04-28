@@ -43,7 +43,7 @@ const sendEmail = async (options) => {
     });
 
     const mailOptions = {
-      from: `"Asvadvadat Spice & Tea Co." <${smtpUser}>`,
+      from: `"Creative N Colourful" <${smtpUser}>`,
       to: options.email,
       subject: options.subject,
       html: options.message,

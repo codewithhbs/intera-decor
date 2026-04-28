@@ -232,7 +232,7 @@ exports.createOrderOfProduct = async (req, res) => {
         Order Confirmed ☕
       </h2>
       <p style="margin:10px 0 0; opacity:0.9;">
-        Thank you for choosing <strong>Asvadvadat – Spice & Tea Co.</strong>
+        Thank you for choosing <strong>Creative N Colourful</strong>
       </p>
     </div>
 
@@ -244,7 +244,7 @@ exports.createOrderOfProduct = async (req, res) => {
           Dear <strong>${user?.Name || "Valued Customer"}</strong>,<br><br>
           Your order has been successfully placed on 
           <strong>${new Date(populatedOrder.orderDate).toLocaleDateString('en-IN')}</strong>.
-          Our artisans are carefully preparing your spices and teas for dispatch.
+          Our artisans are carefully preparing your hAN and teas for dispatch.
         </p>
       </div>
 
@@ -326,9 +326,9 @@ exports.createOrderOfProduct = async (req, res) => {
       <div style="text-align:center; padding:18px; background:#f1e7d8; border-radius:12px;">
         <p style="margin:0; font-size:14px;">
           Need assistance? Reach us at<br>
-          <a href="mailto:${settings?.supportEmail || "support@asvadvadat.com"}"
+          <a href="mailto:${settings?.supportEmail || "support@creativencolourful.com"}"
              style="color:#7A3E1D; text-decoration:none; font-weight:600;">
-            ${settings?.supportEmail || "support@asvadvadat.com"}
+            ${settings?.supportEmail || "support@creativencolourful.com"}
           </a>
         </p>
       </div>
@@ -338,7 +338,7 @@ exports.createOrderOfProduct = async (req, res) => {
     <!-- Footer -->
     <div style="background:#7A3E1D; padding:18px; text-align:center; color:#ffffff;">
       <p style="margin:0; font-size:13px;">
-        © ${new Date().getFullYear()} Asvadvadat – Spice & Tea Co.  
+        © ${new Date().getFullYear()} Creative N Colourful  
         Crafted with aroma & authenticity.
       </p>
     </div>
@@ -430,6 +430,7 @@ exports.createCODOrder = async (req, res) => {
       orderId: "ORD" + Date.now(),
     });
 
+    const url=process.env.WEB_URL || "https://creativencolourful.com"
     const redirectUrl = `${process.env.WEB_URL}/receipt-cod/order-confirmed?id=${newOrder._id}&success=true&type=cod&amountToPay=${newOrder.totalAmount}`;
 
     return res.status(200).json({
