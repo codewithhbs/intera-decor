@@ -9,7 +9,7 @@ const AllSliders = () => {
 
   const fetchSliders = async () => {
     try {
-      const res = await axios.get("https://api.interdecor.adsdigitalmedia.com/api/v1/HeroSlider");
+      const res = await axios.get("http://localhost:7913/api/v1/HeroSlider");
       setSliders(res.data.data || []);
     } catch (err) {
       setError("Failed to fetch sliders");
@@ -27,7 +27,7 @@ const AllSliders = () => {
     if (!window.confirm("Are you sure you want to delete this slider?")) return;
 
     try {
-      await axios.delete(`https://api.interdecor.adsdigitalmedia.com/api/v1/HeroSlider/${id}`);
+      await axios.delete(`http://localhost:7913/api/v1/HeroSlider/${id}`);
       alert("Slider deleted successfully");
       fetchSliders(); // Refresh list
     } catch (err) {
