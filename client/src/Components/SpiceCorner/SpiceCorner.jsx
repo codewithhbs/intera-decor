@@ -9,28 +9,28 @@ import GaramMasala from './grand-masala-garam-masala.png';
 const products = [
   {
     id: 1,
-    name: 'Asvadvadat Spice & Tea Co. Haldi',
+    name: 'Creative N Colourful  Haldi',
     type: 'Ground Spice',
     description: 'Our 100% natural Haldi (Turmeric) adds vibrant color and earthy flavor, perfect for curries, soups, and more.',
     image: Haldi,
   },
   {
     id: 2,
-    name: 'Asvadvadat Spice & Tea Co. Lal Mirch',
+    name: 'Creative N Colourful  Lal Mirch',
     type: 'Ground Spice',
     description: 'Experience the fiery kick of our 100% natural Lal Mirch (Red Chilli Powder), essential for authentic Indian dishes.',
     image: LalMirch,
   },
   {
     id: 3,
-    name: 'Asvadvadat Spice & Tea Co. Dhaniya',
+    name: 'Creative N Colourful  Dhaniya',
     type: 'Ground Spice',
     description: 'Aromatic and fresh, our 100% natural Dhaniya (Coriander Powder) offers a citrusy, sweet note to all your recipes.',
     image: Dhaniya,
   },
   {
     id: 4,
-    name: 'Asvadvadat Spice & Tea Co. Garam Masala',
+    name: 'Creative N Colourful  Garam Masala',
     type: 'Blended Spice',
     description: 'Our signature 100% natural Garam Masala is a warm, fragrant blend, elevating the taste of any savory preparation.',
     image: GaramMasala,

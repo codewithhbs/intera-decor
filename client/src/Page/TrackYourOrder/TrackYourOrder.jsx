@@ -25,7 +25,7 @@ const TrackYourOrder = () => {
         return;
       }
 
-      const response = await fetch(`https://api.interdecor.adsdigitalmedia.com/api/v1/my-recent-order/${orderId}`, {
+      const response = await fetch(`http://localhost:7913/api/v1/my-recent-order/${orderId}`, {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`,

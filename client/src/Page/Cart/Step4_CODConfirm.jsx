@@ -3,7 +3,7 @@ import { Truck, CheckCircle, Loader, Leaf } from "lucide-react";
 
 const Step4_CODConfirm = ({ orderTotal, codAdvancePaid, onPayAdvance, loading, setting }) => {
   const codFee = setting?.shippingCost || 40;
-  const siteName = setting?.siteName || "Asvadvadat Spice & Tea Co.";
+  const siteName = setting?.siteName || "Creative N Colourful ";
 
   return (
     <div className="co-card">

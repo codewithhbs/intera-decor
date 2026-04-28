@@ -22,7 +22,7 @@ import {
 } from "lucide-react";
 import "./Footer.css";
 
-const API = "https://api.interdecor.adsdigitalmedia.com/api/v1";
+const API = "http://localhost:7913/api/v1";
 
 const quickLinks = [
   { label: "Home", to: "/" },
@@ -87,9 +87,9 @@ const Footer = () => {
 
   const social = setting?.socialMediaLinks || {};
   const address =
-    setting?.address || "47, VPO Dhauj, Faridabad, Haryana, India";
-  const phone = setting?.contactNumber || "+91 9355577789";
-  const supportEmail = setting?.supportEmail || "info@asvadvadat.in";
+    setting?.address || "B-14 Amar Colony Lajpat Nagar Iv New Delhi";
+  const phone = setting?.contactNumber || "+91 9910100120";
+  const supportEmail = setting?.supportEmail || "creativencolourful7777@gmail.com ";
   const siteName = setting?.siteName || "Creative N Colourful";
   const year = new Date().getFullYear();
 
@@ -265,26 +265,7 @@ const Footer = () => {
                 ))}
               </div>
 
-              <div className="ftr-shipping-card">
-                <p>
-                  🚚 <strong>Free shipping</strong> on orders above ₹
-                  {setting?.freeShippingThreshold || 299}
-                </p>
-                {setting?.codAvailable && (
-                  <p>💳 COD available · Online payment supported</p>
-                )}
-                <p
-                  style={{
-                    marginTop: 8,
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 5,
-                  }}
-                >
-                  <ShieldCheck size={11} color="var(--gold)" />
-                  <strong>Secure checkout</strong> · 100% safe payments
-                </p>
-              </div>
+             
             </div>
           </div>
 
@@ -311,7 +292,7 @@ const Footer = () => {
 
       {/* ── WhatsApp FAB ── */}
       <a
-        href={`https://api.whatsapp.com/send?phone=91${(phone || "").replace(/\D/g, "")}&text=Hi%2C%20I%20found%20you%20on%20the%20Asvadvadat%20website`}
+        href={`https://api.whatsapp.com/send?phone=91${(phone || "").replace(/\D/g, "")}&text=Hi%2C%20I%20found%20you%20on%20the%Creative N Colourful%20website`}
         target="_blank"
         rel="noopener noreferrer"
         className="ftr-whatsapp-fab"

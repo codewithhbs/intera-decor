@@ -283,21 +283,21 @@ const CheckoutFlow = () => {
     const boot = async () => {
       try {
         // Fetch settings
-        const settingsRes = await axios.get("https://api.interdecor.adsdigitalmedia.com/api/v1/admin/settings");
+        const settingsRes = await axios.get("http://localhost:7913/api/v1/admin/settings");
         if (settingsRes.data?.data) setSetting(settingsRes.data.data);
 
         // Fetch user if logged in
         const token = sessionStorage.getItem("token_login");
         if (token) {
           dispatch(fetchUserDetails());
-          const { data } = await axios.get("https://api.interdecor.adsdigitalmedia.com/api/v1/my-details", {
+          const { data } = await axios.get("http://localhost:7913/api/v1/my-details", {
             headers: { Authorization: `Bearer ${token}` },
           });
           setUser(data.data || {});
 
           // Pre-fill last order address
           try {
-            const lastOrder = await axios.get("https://api.interdecor.adsdigitalmedia.com/api/v1/my-last-order", {
+            const lastOrder = await axios.get("http://localhost:7913/api/v1/my-last-order", {
               headers: { Authorization: `Bearer ${token}` },
             });
             if (lastOrder.data?.success && lastOrder.data.order?.shipping) {
@@ -344,7 +344,7 @@ const CheckoutFlow = () => {
     try {
       dispatch(clearError());
       setGuestSubmitting(true);
-      const res = await axios.post("https://api.interdecor.adsdigitalmedia.com/api/v1/create_user_from_cart", { Email, ContactNumber });
+      const res = await axios.post("http://localhost:7913/api/v1/create_user_from_cart", { Email, ContactNumber });
       if (res.data?.success) {
         const { token } = res.data;
         if (token) sessionStorage.setItem("token_login", token);
@@ -416,7 +416,7 @@ const CheckoutFlow = () => {
     if (paymentMethod === "COD") {
       try {
         const res = await axios.post(
-          "https://api.interdecor.adsdigitalmedia.com/api/v1/create-cod-order",
+          "http://localhost:7913/api/v1/create-cod-order",
           { orderData, amount: shipping || 50 },
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -457,7 +457,7 @@ const CheckoutFlow = () => {
         key: rezorPayKey,
         amount: amount * 100,
         currency: currency || "INR",
-        name: setting?.siteName || "Asvadvadat",
+        name: setting?.siteName || "Creative N Colourful ",
         description: "Order payment",
         order_id: razorpayOrderId,
         handler: async (response) => {
@@ -465,7 +465,7 @@ const CheckoutFlow = () => {
 
           try {
             const verify = await axios.post(
-              "https://api.interdecor.adsdigitalmedia.com/api/v1/verify-payment",
+              "http://localhost:7913/api/v1/verify-payment",
               response
             );
 
@@ -567,7 +567,7 @@ const CheckoutFlow = () => {
                 <div className="flex items-center gap-2">
                   <Leaf size={12} style={{ color: "#C8973A" }} />
                   <span style={{ fontFamily: "'Playfair Display',serif", fontSize: "1rem", fontWeight: 700, color: "#2A1F14", letterSpacing: "-0.01em" }}>
-                    {setting?.siteName?.split(" ")[0] || "Asvadvadat"}
+                    {setting?.siteName?.split(" ")[0] || "Creative N Colourful "}
                   </span>
                 </div>
                 <span style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.5rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(200,151,58,0.6)" }}>

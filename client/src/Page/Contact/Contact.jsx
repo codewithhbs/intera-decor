@@ -102,17 +102,17 @@ const Contact = () => {
   const handleFetchSetting = async () => {
     try {
       const { data } = await axios.get(
-        "https://api.interdecor.adsdigitalmedia.com/api/v1/admin/settings"
+        "http://localhost:7913/api/v1/admin/settings"
       );
       setSettings(data.data);
     } catch (error) {
       console.log("Failed to fetch settings:", error);
       // Set fallback defaults
       setSettings({
-        siteName: "Asvadvadat Spice & Tea Co.",
-        contactNumber: "+91 9876543210",
-        supportEmail: "support@example.com",
-        address: "New Delhi, India",
+        siteName: "Creative N Colourful ",
+        contactNumber: "+91 9910100120",
+        supportEmail: "reativencolourful7777@gmail.com ",
+        address: "B-14 Amar Colony Lajpat Nagar Iv New Delhi",
       });
     }
   };
@@ -155,7 +155,7 @@ const Contact = () => {
     setIsLoading(true);
     try {
       const res = await axios.post(
-        "https://api.interdecor.adsdigitalmedia.com/api/v1/support-request",
+        "http://localhost:7913/api/v1/support-request",
         formData
       );
       setIsSubmitted(true);
@@ -181,21 +181,21 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Call Us",
-      info: settings.contactNumber || "+91 XXXX XXXX",
+      info: settings.contactNumber || "+91 9910100120",
       description: "Mon-Sat 10 AM - 06 PM",
       bgColor: "from-[#C8973A] to-[#A67828]",
     },
     {
       icon: Mail,
       title: "Email",
-      info: settings.supportEmail || "support@example.com",
+      info: settings.supportEmail || "creativencolourful7777@gmail.com ",
       description: "We reply within 24 hours",
       bgColor: "from-[#81190B] to-[#6F1508]",
     },
     {
       icon: MapPin,
       title: "Address",
-      info: settings.address || "New Delhi, India",
+      info: settings.address || "B-14 Amar Colony Lajpat Nagar Iv New Delhi",
       description: "Visit our store",
       bgColor: "from-[#C8973A] to-[#A67828]",
     },
@@ -208,7 +208,7 @@ const Contact = () => {
     },
   ];
 
-  const siteName = settings.siteName || "Asvadvadat Spice & Tea Co.";
+  const siteName = settings.siteName || "Creative N Colourful ";
 
   return (
     <>
@@ -237,8 +237,8 @@ const Contact = () => {
             </h1>
 
             <p className="text-lg text-[#5C4033] font-light max-w-2xl mx-auto animate-fade-up stagger-2">
-              Have questions about our premium spices or need support? We're here
-              to help. Reach out and let's connect.
+              Have questions about our handcrafted products or need assistance? We’re here to help. Reach out and let’s connect.
+
             </p>
           </div>
         </div>

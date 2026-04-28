@@ -348,7 +348,7 @@ const total = promoApplied
                   {[
                     { icon: Truck, label: "Free Shipping", sub: `on orders ₹${setting?.freeShippingThreshold}+` },
                     { icon: RotateCcw, label: "Easy Returns", sub: "7-day policy" },
-                    { icon: Shield, label: "100% Natural", sub: "quality assured" },
+                    { icon: Shield, label: "100% Handmade", sub: "Quality Assured" },
                   ].map(({ icon: Icon, label, sub }) => (
                     <div key={label} className="flex flex-col items-center text-center gap-1.5 py-3.5 px-2 rounded-xl"
                       style={{ background: "rgba(200,151,58,0.05)", border: "1px solid rgba(200,151,58,0.12)" }}>

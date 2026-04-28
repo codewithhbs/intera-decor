@@ -186,8 +186,8 @@ const TestimonialCarousel = () => {
             What Our <span className="tc-heading-accent">Customers Say</span>
           </h2>
           <p className="tc-subtext">
-            Real stories from real kitchens — discover why households trust
-            Asvadvadat.
+            Real stories from art lovers — discover why customers trust
+            Handcraft for unique handmade creations.
           </p>
         </div>
 

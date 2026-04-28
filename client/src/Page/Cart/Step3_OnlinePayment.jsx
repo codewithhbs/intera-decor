@@ -2,7 +2,7 @@ import React from "react";
 import { Smartphone, Loader, Shield, Zap, CreditCard } from "lucide-react";
 
 const Step3_OnlinePayment = ({ orderTotal, onPay, loading, setting }) => {
-  const siteName = setting?.siteName || "Asvadvadat Spice & Tea Co.";
+  const siteName = setting?.siteName || "Creative N Colourful ";
 
   return (
     <div className="co-card">

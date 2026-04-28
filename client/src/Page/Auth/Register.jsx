@@ -32,7 +32,7 @@ const Register = () => {
         setLoading(true)
         try {
             console.log("Submitting Registration Form with Data:", formData);
-            const response = await axios.post(`https://api.interdecor.adsdigitalmedia.com/api/v1/regsiter-user`, formData)
+            const response = await axios.post(`http://localhost:7913/api/v1/regsiter-user`, formData)
             console.log("Submitting Registration Form with Data: done");
             const user = response.data.data
             // window.location.href = `/Verify-Otp?type=register&email=${user?.Email || formData.Email}&number=${user?.ContactNumber || formData.ContactNumber}`
@@ -79,7 +79,7 @@ const Register = () => {
                     <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
                         <ShoppingBag className="w-10 h-10 text-green-600" />
                     </div>
-                    <h2 className="text-3xl font-bold text-[#81190B] mb-4">Welcome to Asvadvadat Spice & Tea Co !</h2>
+                    <h2 className="text-3xl font-bold text-[#81190B] mb-4">Welcome to Creative N Colourful  !</h2>
                     <p className="text-gray-600 mb-6">
                         Your account has been created successfully. Start exploring our exclusive collection!
                     </p>

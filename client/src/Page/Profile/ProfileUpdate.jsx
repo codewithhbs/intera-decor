@@ -17,7 +17,7 @@ const ProfileUpdate = () => {
     const fetchProfile = async () => {
         try {
             setLoading(true);
-            const { data } = await axios.get('https://api.interdecor.adsdigitalmedia.com/api/v1/my-details', {
+            const { data } = await axios.get('http://localhost:7913/api/v1/my-details', {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -54,7 +54,7 @@ const ProfileUpdate = () => {
         try {
             setLoading(true);
             const { data } = await axios.put(
-                'https://api.interdecor.adsdigitalmedia.com/api/v1/update-user-profile',
+                'http://localhost:7913/api/v1/update-user-profile',
                 formData,
                 {
                     headers: {

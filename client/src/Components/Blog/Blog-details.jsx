@@ -39,7 +39,7 @@ const BlogDetail = () => {
         </h2>
 
         <p className="text-lg text-gray-700 leading-relaxed mb-6">
-          At <span className="font-semibold text-[#81190B]">Asvadvadat Spice & Tea Co.</span>, 
+          At <span className="font-semibold text-[#81190B]">Creative N Colourful</span>, 
           we believe spices are more than just ingredients – they are the soul of 
           every Indian kitchen. That’s why our{" "}
           <strong>Haldi, Dhania, Garam Masala, and Lal Mirch</strong> are 
@@ -54,7 +54,7 @@ const BlogDetail = () => {
         </p>
 
         <h3 className="text-2xl font-bold text-[#81190B] mt-8 mb-4">
-          Why Choose Asvadvadat Spice & Tea Co?
+          Why Choose Creative N Colourful
         </h3>
         <ul className="list-disc pl-6 space-y-2 text-gray-700">
           <li>100% Natural & Chemical-Free</li>

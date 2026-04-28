@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import Img from "./bg-about.jpg";
-import Spices from "./spice.png";
+import Spices from "./about-us.webp";
 import Natural from "./hun-natura.png";
 import FarmFresh from "./farm-fresh.png";
 import SafeHygienic from "./safe-hygienic.png";
@@ -9,115 +9,151 @@ import Quality from "./quality.png";
 import {
   Heart,
   Shield,
-  Zap,
   Target,
   Truck,
   RefreshCw,
   CheckCircle,
   Star,
-  TrendingUp,
   Quote,
-  Leaf,
   ArrowRight,
+  Scissors,
+  Palette,
+  Sparkles,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
-/* ── Font loader ── */
+/* ── Font Loader ── */
 const FontLoader = () => {
   useEffect(() => {
-    if (document.getElementById("about-fonts")) return;
+    if (document.getElementById("cnc-fonts")) return;
     const link = document.createElement("link");
-    link.id = "about-fonts";
+    link.id = "cnc-fonts";
     link.rel = "stylesheet";
     link.href =
-      "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=DM+Sans:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;1,300;1,400&display=swap";
+      "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap";
     document.head.appendChild(link);
   }, []);
   return null;
 };
 
+/* ── Data ── */
 const values = [
   {
     icon: Heart,
-    title: "Passion for Spices",
-    desc: "We believe every meal should be flavorful. Our spices are carefully sourced for authenticity and aroma.",
+    title: "Handcrafted with Love",
+    desc: "Every product is lovingly made by skilled artisans. We pour heart and soul into each creation, ensuring it carries warmth and personality.",
+    color: "#e8f4ff",
+    border: "#b8d9f8",
+    iconBg: "#050a30",
   },
   {
     icon: Shield,
-    title: "Quality First",
-    desc: "Every batch undergoes strict quality checks. Only the best, 100% natural spices make it to your kitchen.",
+    title: "Quality Craftsmanship",
+    desc: "We use only premium materials. Each piece undergoes careful inspection to ensure durability, beauty, and authentic artisan quality.",
+    color: "#fff8e8",
+    border: "#f0d98a",
+    iconBg: "#c49015",
   },
   {
-    icon: Zap,
-    title: "Innovation",
-    desc: "From new blends to convenient packaging, we continuously innovate to enhance your cooking experience.",
+    icon: Palette,
+    title: "Creative Vision",
+    desc: "From vibrant colours to bold designs, we continuously push creative boundaries to bring you handicrafts that are truly one-of-a-kind.",
+    color: "#f0fff4",
+    border: "#a8dfc0",
+    iconBg: "#1a6b3c",
   },
   {
     icon: Target,
-    title: "Customer Focus",
-    desc: "Your satisfaction is our priority. From easy ordering to prompt support, we are here for you.",
+    title: "Customer Delight",
+    desc: "Your joy is our purpose. From personalised gifts to custom orders, we ensure every experience with us is memorable.",
+    color: "#fef0ff",
+    border: "#ddb0f0",
+    iconBg: "#7a1fa2",
   },
 ];
 
 const features = [
-  { icon: Truck, title: "Free Shipping", sub: "On orders over ₹299" },
-  { icon: RefreshCw, title: "7-Day Returns", sub: "Satisfaction guaranteed" },
-  { icon: CheckCircle, title: "100% Natural", sub: "No artificial additives" },
-  { icon: Star, title: "10AM–6PM Support", sub: "Always here to help" },
+  { icon: Truck, title: "Free Delivery", sub: "On orders over ₹499" },
+  { icon: RefreshCw, title: "Easy Returns", sub: "7-day return policy" },
+  { icon: CheckCircle, title: "100% Handmade", sub: "Artisan crafted" },
+  { icon: Star, title: "Custom Orders", sub: "Personalised for you" },
 ];
 
 const whyUs = [
   {
     img: Natural,
-    title: "100% Natural",
-    desc: "Pure, natural ingredients. No shortcuts.",
+    title: "Authentic Artistry",
+    desc: "Real artisans, real craft. Every piece tells a story.",
   },
   {
     img: FarmFresh,
-    title: "Farm Fresh",
-    desc: "Directly sourced from trusted farmers.",
+    title: "Vibrant & Unique",
+    desc: "Bold colours and creative designs in every product.",
   },
   {
     img: SafeHygienic,
-    title: "Safe & Hygienic",
-    desc: "Processed under strict hygiene standards.",
+    title: "Premium Materials",
+    desc: "Only the finest materials for lasting beauty.",
   },
   {
     img: Quality,
-    title: "Premium Quality",
-    desc: "Handpicked spices for authentic flavour.",
+    title: "Gift-Ready",
+    desc: "Beautifully packaged, perfect for every occasion.",
   },
 ];
 
-const GRAIN = `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E")`;
+/* ── Decorative dots pattern ── */
+const DOTS = `url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='2' cy='2' r='1.2' fill='%23050a30' opacity='0.06'/%3E%3C/svg%3E")`;
 
-const SectionEyebrow = ({ label }) => (
-  <div className="flex items-center justify-center gap-3 mb-3">
+/* ── Stitch border ── */
+const STITCH_NAVY = `repeating-linear-gradient(90deg, rgba(5,10,48,0.18) 0px, rgba(5,10,48,0.18) 7px, transparent 7px, transparent 16px)`;
+const STITCH_GOLD = `repeating-linear-gradient(90deg, rgba(196,144,21,0.35) 0px, rgba(196,144,21,0.35) 7px, transparent 7px, transparent 16px)`;
+
+/* ── Eyebrow ── */
+const Eyebrow = ({ label, dark = false }) => (
+  <div
+    style={{
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      gap: 10,
+      marginBottom: 10,
+    }}
+  >
     <div
-      className="h-px w-10"
-      style={{ background: "linear-gradient(90deg,transparent,#C8973A)" }}
+      style={{
+        height: 1,
+        width: 32,
+        background: dark ? "rgba(5,10,48,0.25)" : "#c49015",
+      }}
     />
     <span
       style={{
-        fontFamily: "'DM Sans',sans-serif",
-        fontSize: "0.6rem",
-        letterSpacing: "0.25em",
+        fontFamily: "'Poppins',sans-serif",
+        fontSize: "0.57rem",
+        letterSpacing: "0.28em",
         textTransform: "uppercase",
-        color: "#C8973A",
+        color: dark ? "rgba(5,10,48,0.45)" : "#c49015",
+        fontWeight: 600,
         display: "flex",
         alignItems: "center",
-        gap: 6,
+        gap: 5,
       }}
     >
-      <Leaf size={10} /> {label}
+      <Scissors size={9} color={dark ? "rgba(5,10,48,0.4)" : "#c49015"} />
+      {label}
     </span>
     <div
-      className="h-px w-10"
-      style={{ background: "linear-gradient(90deg,#C8973A,transparent)" }}
+      style={{
+        height: 1,
+        width: 32,
+        background: dark ? "rgba(5,10,48,0.25)" : "#c49015",
+      }}
     />
   </div>
 );
 
+/* ── Main Component ── */
 const About = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -127,283 +163,497 @@ const About = () => {
     <>
       <FontLoader />
       <Helmet>
-        <title>About Us | Asvadvadat Spice & Tea Co.</title>
+        <title>About Us | Creative N Colourful Handicrafts</title>
         <meta
           name="description"
-          content="Founded with a passion for pure, authentic spices and teas. Asvadvadat Spice & Tea Co. brings farm-fresh flavour directly to your kitchen."
+          content="Creative N Colourful — handcrafted with passion. Discover our story of artistry, colour, and authentic handicrafts made with love."
         />
       </Helmet>
 
       <style>{`
-        @keyframes about-fade-up {
-          from { opacity: 0; transform: translateY(22px); }
-          to   { opacity: 1; transform: translateY(0); }
+        * { box-sizing: border-box; }
+
+        @keyframes fadeUp {
+          from { opacity:0; transform:translateY(24px); }
+          to   { opacity:1; transform:translateY(0); }
         }
-        .ab-enter { animation: about-fade-up 0.6s cubic-bezier(0.22,1,0.36,1) both; }
-        .ab-d1 { animation-delay: 0.05s; }
-        .ab-d2 { animation-delay: 0.13s; }
-        .ab-d3 { animation-delay: 0.21s; }
-        .ab-d4 { animation-delay: 0.29s; }
-        .val-card:hover .val-icon { transform: scale(1.1) rotate(-4deg); }
-        .why-card:hover .why-img { transform: scale(1.06); }
+        @keyframes floatY {
+          0%,100% { transform: translateY(0) rotate(-2deg); }
+          50%      { transform: translateY(-9px) rotate(-2deg); }
+        }
+        @keyframes spinRing {
+          from { transform: translate(-50%,-50%) rotate(0deg); }
+          to   { transform: translate(-50%,-50%) rotate(360deg); }
+        }
+        @keyframes shimmer {
+          0%   { background-position: -300% center; }
+          100% { background-position:  300% center; }
+        }
+
+        .ab-enter { animation: fadeUp 0.6s cubic-bezier(0.22,1,0.36,1) both; }
+        .ab-d1 { animation-delay:.07s; }
+        .ab-d2 { animation-delay:.14s; }
+        .ab-d3 { animation-delay:.21s; }
+        .ab-d4 { animation-delay:.28s; }
+
+        .float-badge { animation: floatY 3.2s ease-in-out infinite; }
+
+        .spin-ring {
+          position:absolute; width:360px; height:360px; border-radius:50%;
+          border:1.5px dashed rgba(5,10,48,0.12);
+          top:50%; left:50%;
+          animation: spinRing 28s linear infinite;
+        }
+
+        .gold-shine {
+          background: linear-gradient(90deg,#b8860b 0%,#f0c040 35%,#fffbe0 50%,#f0c040 65%,#b8860b 100%);
+          background-size: 300% auto;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          animation: shimmer 4s linear infinite;
+        }
+
+        .val-card { transition: all 0.32s cubic-bezier(0.22,1,0.36,1); cursor:default; }
+        .val-card:hover { transform: translateY(-5px); box-shadow: 0 18px 48px rgba(5,10,48,0.1) !important; }
+
+        .why-card { transition: all 0.32s cubic-bezier(0.22,1,0.36,1); cursor:default; }
+        .why-card:hover { transform: translateY(-6px); box-shadow: 0 18px 50px rgba(5,10,48,0.1) !important; border-color: #c49015 !important; }
+        .why-card:hover .why-img { transform: scale(1.1) rotate(4deg); }
+
+        .feat-card { transition: all 0.3s; }
+        .feat-card:hover { transform: translateY(-4px); background: #050a30 !important; }
+        .feat-card:hover h3, .feat-card:hover p { color: #fff !important; }
+        .feat-card:hover .feat-icon { background: rgba(196,144,21,0.2) !important; }
+        .feat-card:hover .feat-icon svg { color: #f0c040 !important; }
+
+        .btn-primary { transition: all 0.28s; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(5,10,48,0.25) !important; background: #0a1560 !important; }
+
+        .btn-outline { transition: all 0.28s; }
+        .btn-outline:hover { background: #050a30 !important; color: #fff !important; border-color: #050a30 !important; transform: translateY(-2px); }
+
+        .explore-link { transition: color 0.2s; }
+        .explore-link:hover { color: #050a30 !important; }
       `}</style>
 
       <div
-        className="min-h-screen"
         style={{
-          background:
-            "linear-gradient(160deg,#FAF6EF 0%,#F2E8D5 55%,#FAF6EF 100%)",
+          background: "#fafaf8",
+          fontFamily: "'Poppins',sans-serif",
+          minHeight: "100vh",
         }}
       >
-        {/* ━━━━━ HERO ━━━━━ */}
-        <div
-          className="relative text-white overflow-hidden"
-          style={{
-            minHeight: 420,
-            backgroundImage: `url(${Img})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center top",
-          }}
-        >
+        {/* ══════ HERO ══════ */}
+        <div className="relative overflow-hidden" style={{ minHeight: 520 }}>
+          {/* BG image dimmed lightly */}
           <div
-            className="absolute inset-0"
             style={{
-              background:
-                "linear-gradient(to bottom, rgba(28,18,8,0.72) 0%, rgba(28,18,8,0.55) 60%, rgba(242,232,213,1) 100%)",
+              position: "absolute",
+              inset: 0,
+              backgroundImage: `url(${Img})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              filter: "brightness(0.18) saturate(0.4)",
             }}
           />
-          {/* grain */}
+          {/* Navy overlay */}
           <div
-            className="absolute inset-0 opacity-30 pointer-events-none"
-            style={{ backgroundImage: GRAIN, backgroundSize: "180px" }}
+            style={{
+              position: "absolute",
+              inset: 0,
+              background:
+                "linear-gradient(155deg,rgba(5,10,48,0.96) 0%,rgba(5,10,48,0.88) 55%,rgba(196,144,21,0.15) 100%)",
+            }}
+          />
+          {/* Dots pattern subtle */}
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              backgroundImage: DOTS,
+              backgroundSize: "20px",
+              opacity: 0.6,
+            }}
           />
 
-          <div className="relative max-w-5xl mx-auto px-6 py-24 sm:py-32 text-center ab-enter">
-            <p
+          {/* Decorative rings */}
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              overflow: "hidden",
+              pointerEvents: "none",
+            }}
+          >
+            <div
               style={{
-                fontFamily: "'DM Sans',sans-serif",
-                fontSize: "0.65rem",
-                letterSpacing: "0.28em",
-                textTransform: "uppercase",
-                color: "#E6C882",
-                marginBottom: 12,
-                display: "flex",
+                position: "absolute",
+                top: "12%",
+                right: "6%",
+                width: 280,
+                height: 280,
+                borderRadius: "50%",
+                border: "1px dashed rgba(255,255,255,0.08)",
+              }}
+            />
+            <div
+              style={{
+                position: "absolute",
+                top: "20%",
+                right: "10%",
+                width: 190,
+                height: 190,
+                borderRadius: "50%",
+                border: "1px solid rgba(196,144,21,0.18)",
+              }}
+            />
+            <div
+              style={{
+                position: "absolute",
+                bottom: "8%",
+                left: "4%",
+                width: 130,
+                height: 130,
+                borderRadius: "50%",
+                border: "1px dashed rgba(196,144,21,0.15)",
+              }}
+            />
+            {/* Stitch top */}
+            <div
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                height: 3,
+                backgroundImage: STITCH_GOLD,
+              }}
+            />
+            {/* Stitch bottom */}
+            <div
+              style={{
+                position: "absolute",
+                bottom: 0,
+                left: 0,
+                right: 0,
+                height: 3,
+                backgroundImage: STITCH_GOLD,
+              }}
+            />
+          </div>
+
+          <div className="ab-enter relative max-w-5xl mx-auto px-6 py-28 sm:py-36 text-center">
+            {/* pill */}
+            <div
+              style={{
+                display: "inline-flex",
                 alignItems: "center",
-                justifyContent: "center",
-                gap: 6,
+                gap: 7,
+                padding: "6px 18px",
+                borderRadius: 999,
+                marginBottom: 22,
+                background: "rgba(196,144,21,0.15)",
+                border: "1px solid rgba(196,144,21,0.4)",
               }}
             >
-              <Leaf size={10} /> Est. 2020 · Pure · Aromatic · Handcrafted
-            </p>
-            <h1
-              style={{
-                fontFamily: "'Playfair Display',serif",
-                fontSize: "clamp(2.2rem,6vw,4rem)",
-                fontWeight: 800,
-                color: "#FAF6EF",
-                lineHeight: 1.1,
-                letterSpacing: "-0.02em",
-              }}
-            >
-              About{" "}
+              <Palette size={11} color="#f0c040" />
               <span
                 style={{
-                  fontFamily: "'Cormorant Garamond',serif",
-                  fontStyle: "italic",
-                  fontWeight: 400,
-                  background: "linear-gradient(90deg,#C8973A,#E6C882)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
+                  fontFamily: "'Poppins',sans-serif",
+                  fontSize: "0.57rem",
+                  letterSpacing: "0.28em",
+                  textTransform: "uppercase",
+                  color: "#f0c040",
+                  fontWeight: 600,
                 }}
               >
-                Asvadvadat
+                Est. 2018 · Handmade · Artisan · Colourful
               </span>
-            </h1>
-            <p
+            </div>
+
+            <h1
               style={{
-                fontFamily: "'DM Sans',sans-serif",
-                fontSize: "1rem",
-                color: "rgba(250,246,239,0.65)",
-                fontWeight: 300,
-                marginTop: 16,
-                lineHeight: 1.75,
-                maxWidth: 500,
-                marginLeft: "auto",
-                marginRight: "auto",
+                fontFamily: "'Poppins',sans-serif",
+                fontSize: "clamp(2.2rem,6.5vw,4.5rem)",
+                fontWeight: 800,
+                color: "#f5f2ec",
+                lineHeight: 1.08,
+                letterSpacing: "-0.02em",
+                marginBottom: 6,
               }}
             >
-              Spice & Tea Co. — where tradition meets purity in every jar and
-              every brew.
+              About <span className="gold-shine">Creative N Colourful</span>
+            </h1>
+
+            <div
+              style={{
+                width: 56,
+                height: 3,
+                margin: "16px auto 20px",
+                background: "linear-gradient(90deg,#c49015,#f0c040)",
+                borderRadius: 2,
+              }}
+            />
+
+            <p
+              style={{
+                fontFamily: "'Poppins',sans-serif",
+                fontSize: "1rem",
+                color: "rgba(245,242,236,0.58)",
+                fontWeight: 300,
+                lineHeight: 1.85,
+                maxWidth: 460,
+                margin: "0 auto",
+              }}
+            >
+              Where every stitch, stroke, and colour tells a story — bringing
+              handcrafted joy into your everyday life.
             </p>
           </div>
         </div>
 
-        {/* ━━━━━ OUR STORY ━━━━━ */}
-        <section className="py-16 lg:py-24 relative overflow-hidden">
+        {/* ══════ OUR STORY ══════ */}
+        <section
+          style={{
+            padding: "72px 0 80px",
+            background: "#ffffff",
+            position: "relative",
+            overflow: "hidden",
+          }}
+        >
           <div
-            className="absolute inset-0 pointer-events-none opacity-20"
-            style={{ backgroundImage: GRAIN, backgroundSize: "180px" }}
+            style={{
+              position: "absolute",
+              inset: 0,
+              backgroundImage: DOTS,
+              backgroundSize: "20px",
+              opacity: 0.1,
+            }}
           />
+
           <div className="relative max-w-7xl mx-auto px-5 sm:px-8">
-            <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-              {/* Image side */}
-              <div className="relative flex justify-center ab-enter ab-d1">
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr",
+                gap: 40,
+                alignItems: "center",
+              }}
+              className="lg:grid-cols-2 lg:gap-20"
+            >
+              {/* Image */}
+              <div className="ab-enter ab-d1 relative flex justify-center">
+                <div className="spin-ring" />
+
                 <div
-                  className="absolute w-72 h-72 rounded-full pointer-events-none hidden lg:block"
                   style={{
-                    border: "1px dashed rgba(200,151,58,0.2)",
-                    top: "50%",
-                    left: "50%",
-                    transform: "translate(-50%,-50%)",
-                  }}
-                />
-                <div
-                  className="relative z-10 w-full max-w-sm rounded-2xl overflow-hidden"
-                  style={{
+                    position: "relative",
+                    zIndex: 10,
+                    width: "100%",
+                    maxWidth: 380,
+                    borderRadius: 28,
+                    overflow: "hidden",
                     boxShadow:
-                      "0 16px 56px rgba(42,31,20,0.15), 0 0 0 1px rgba(200,151,58,0.15)",
+                      "0 28px 70px rgba(5,10,48,0.14), 0 0 0 1px rgba(5,10,48,0.07)",
+                    border: "1px solid rgba(5,10,48,0.08)",
                   }}
                 >
                   <img
                     src={Spices}
-                    alt="Our Spices"
-                    className="w-full object-cover"
-                    style={{ height: "clamp(260px,42vw,400px)" }}
-                  />
-                  <div
-                    className="absolute inset-0"
+                    alt="Our Handicrafts"
                     style={{
-                      background:
-                        "linear-gradient(to top,rgba(42,31,20,0.45) 0%,transparent 55%)",
+                      width: "100%",
+                      height: "clamp(280px,42vw,420px)",
+                      display: "block",
                     }}
                   />
-                  {/* Quote overlay */}
-                  <div className="absolute bottom-5 left-4 right-4">
+                  <div
+                    style={{
+                      position: "absolute",
+                      inset: 0,
+                      background:
+                        "linear-gradient(to top,rgba(5,10,48,0.72) 0%,transparent 52%)",
+                    }}
+                  />
+
+                  {/* Quote card */}
+                  <div
+                    style={{
+                      position: "absolute",
+                      bottom: 16,
+                      left: 14,
+                      right: 14,
+                    }}
+                  >
                     <div
-                      className="flex items-start gap-2 p-3 rounded-xl"
                       style={{
-                        background: "rgba(250,246,239,0.12)",
-                        backdropFilter: "blur(12px)",
-                        border: "1px solid rgba(200,151,58,0.2)",
+                        display: "flex",
+                        alignItems: "flex-start",
+                        gap: 10,
+                        padding: "12px 14px",
+                        borderRadius: 16,
+                        background: "rgba(255,255,255,0.95)",
+                        boxShadow: "0 4px 20px rgba(5,10,48,0.12)",
+                        border: "1px solid rgba(196,144,21,0.2)",
                       }}
                     >
                       <Quote
-                        size={14}
-                        style={{
-                          color: "#C8973A",
-                          flexShrink: 0,
-                          marginTop: 2,
-                        }}
+                        size={13}
+                        color="#c49015"
+                        style={{ flexShrink: 0, marginTop: 2 }}
                       />
                       <div>
                         <p
                           style={{
-                            fontFamily: "'Cormorant Garamond',serif",
+                            fontFamily: "'Poppins',sans-serif",
                             fontStyle: "italic",
-                            fontSize: "0.88rem",
-                            color: "#FAF6EF",
-                            lineHeight: 1.4,
+                            fontSize: "0.82rem",
+                            color: "#1a1208",
+                            lineHeight: 1.5,
+                            fontWeight: 400,
                           }}
                         >
-                          "Every dish deserves the perfect flavour."
+                          "Every colour has a story. Every craft has a soul."
                         </p>
                         <p
                           style={{
-                            fontFamily: "'DM Sans',sans-serif",
-                            fontSize: "0.6rem",
+                            fontFamily: "'Poppins',sans-serif",
+                            fontSize: "0.57rem",
                             letterSpacing: "0.12em",
                             textTransform: "uppercase",
-                            color: "#C8973A",
-                            marginTop: 4,
+                            color: "#c49015",
+                            marginTop: 5,
+                            fontWeight: 600,
                           }}
                         >
-                          — Founder, Asvadvadat
+                          — Founder, Creative N Colourful
                         </p>
                       </div>
                     </div>
                   </div>
                 </div>
-                {/* Floating stat badge */}
+
+                {/* Floating badge */}
                 <div
-                  className="absolute -bottom-3 -right-2 lg:-right-5 z-20 px-4 py-2.5 rounded-2xl hidden sm:flex flex-col items-center"
+                  className="float-badge"
                   style={{
-                    background: "linear-gradient(135deg,#C8973A,#A67828)",
-                    boxShadow: "0 8px 24px rgba(200,151,58,0.35)",
+                    position: "absolute",
+                    bottom: -10,
+                    right: -8,
+                    zIndex: 20,
+                    padding: "10px 16px",
+                    borderRadius: 18,
+                    background: "linear-gradient(135deg,#050a30,#0d1a5e)",
+                    boxShadow: "0 12px 32px rgba(5,10,48,0.28)",
+                    border: "2px solid rgba(196,144,21,0.3)",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
                   }}
                 >
                   <span
                     style={{
-                      fontFamily: "'Playfair Display',serif",
+                      fontFamily: "'Poppins',sans-serif",
                       fontSize: "1.5rem",
                       fontWeight: 800,
-                      color: "#FAF6EF",
+                      color: "#f0c040",
                       lineHeight: 1,
                     }}
                   >
-                    50+
+                    100+
                   </span>
                   <span
                     style={{
-                      fontFamily: "'DM Sans',sans-serif",
-                      fontSize: "0.58rem",
-                      letterSpacing: "0.12em",
+                      fontFamily: "'Poppins',sans-serif",
+                      fontSize: "0.52rem",
+                      letterSpacing: "0.1em",
                       textTransform: "uppercase",
-                      color: "rgba(250,246,239,0.8)",
+                      color: "rgba(255,255,255,0.6)",
+                      fontWeight: 600,
                     }}
                   >
-                    Varieties
+                    Crafts
+                  </span>
+                </div>
+
+                {/* Top left badge */}
+                <div
+                  style={{
+                    position: "absolute",
+                    top: -10,
+                    left: -8,
+                    zIndex: 20,
+                    padding: "7px 12px",
+                    borderRadius: 12,
+                    background: "#fff",
+                    border: "1px solid rgba(196,144,21,0.3)",
+                    boxShadow: "0 4px 18px rgba(5,10,48,0.1)",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 6,
+                  }}
+                >
+                  <Sparkles size={13} color="#c49015" />
+                  <span
+                    style={{
+                      fontFamily: "'Poppins',sans-serif",
+                      fontSize: "0.6rem",
+                      color: "#050a30",
+                      fontWeight: 600,
+                    }}
+                  >
+                    Handmade ✦
                   </span>
                 </div>
               </div>
 
-              {/* Text side */}
-              <div className="ab-enter ab-d2 flex flex-col gap-6">
-                <div>
-                  <SectionEyebrow label="Our Journey" />
-                  <h2
+              {/* Text */}
+              <div
+                className="ab-enter ab-d2"
+                style={{ display: "flex", flexDirection: "column", gap: 24 }}
+              >
+                <Eyebrow label="Our Journey" />
+                <h2
+                  style={{
+                    fontFamily: "'Poppins',sans-serif",
+                    fontSize: "clamp(1.9rem,4vw,2.9rem)",
+                    fontWeight: 800,
+                    color: "#050a30",
+                    letterSpacing: "-0.02em",
+                    lineHeight: 1.1,
+                    textAlign: "center",
+                  }}
+                >
+                  The{" "}
+                  <span
                     style={{
-                      fontFamily: "'Playfair Display',serif",
-                      fontSize: "clamp(1.9rem,4vw,2.8rem)",
-                      fontWeight: 700,
-                      color: "#2A1F14",
-                      letterSpacing: "-0.02em",
-                      lineHeight: 1.1,
-                      textAlign: "center",
+                      fontStyle: "italic",
+                      fontWeight: 600,
+                      color: "#c49015",
                     }}
                   >
-                    The{" "}
-                    <span
-                      style={{
-                        fontFamily: "'Cormorant Garamond',serif",
-                        fontStyle: "italic",
-                        fontWeight: 400,
-                        background: "linear-gradient(90deg,#C8973A,#A67828)",
-                        WebkitBackgroundClip: "text",
-                        WebkitTextFillColor: "transparent",
-                        backgroundClip: "text",
-                      }}
-                    >
-                      Asvadvadat
-                    </span>{" "}
-                    Story
-                  </h2>
-                </div>
+                    Creative N Colourful
+                  </span>{" "}
+                  Story
+                </h2>
 
-                <div className="flex flex-col gap-4">
+                <div
+                  style={{ display: "flex", flexDirection: "column", gap: 14 }}
+                >
                   {[
-                    "Founded with a simple but powerful mission — to deliver authentic, natural spices and teas directly to your kitchen. Our founders sourced the finest varieties from across India, blending generations of tradition with uncompromising quality.",
-                    "Over the years, we've grown into a brand trusted by households who refuse to settle for anything less than pure. Every product is carefully tested for aroma, freshness, and taste to ensure only the best reaches you.",
-                    "Today, Asvadvadat Spice & Tea Co. continues to inspire culinary creativity, offering over 50 varieties of premium spices and hand-blended teas — while staying true to our core values: purity, authenticity, and delight.",
+                    "Born from a love of colour and craftsmanship, Creative N Colourful was founded with a single dream — to celebrate the timeless art of handmade creations. From vibrant wall hangings to intricate jewellery and home décor, every piece carries the fingerprint of a skilled artisan.",
+                    "Over the years, we've built a community of passionate craftspeople across India, each bringing their regional heritage and artistic flair to our collection. We believe handmade is not just a product — it's a connection between the maker and the person who receives it.",
+                    "Today, Creative N Colourful is home to 100+ unique handicraft products — each thoughtfully crafted, joyfully coloured, and made to bring warmth and creativity into your life.",
                   ].map((para, i) => (
                     <p
                       key={i}
                       style={{
-                        fontFamily: "'DM Sans',sans-serif",
-                        fontSize: "0.9rem",
-                        color: "rgba(42,31,20,0.65)",
+                        fontFamily: "'Poppins',sans-serif",
+                        fontSize: "0.88rem",
+                        color: "rgba(0, 0, 0, 0.55)",
                         fontWeight: 300,
-                        lineHeight: 1.85,
+                        lineHeight: 1.9,
                       }}
                     >
                       {para}
@@ -411,27 +661,39 @@ const About = () => {
                   ))}
                 </div>
 
-                {/* Stats row */}
-                <div className="grid grid-cols-3 gap-3 pt-2">
+                {/* Stats */}
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "repeat(3,1fr)",
+                    gap: 10,
+                    marginTop: 4,
+                  }}
+                >
                   {[
-                    { v: "2020", l: "Founded" },
-                    { v: "50+", l: "Products" },
-                    { v: "25k+", l: "Happy Customers" },
+                    { v: "2018", l: "Founded" },
+                    { v: "100+", l: "Products" },
+                    { v: "15k+", l: "Customers" },
                   ].map((s) => (
                     <div
                       key={s.l}
-                      className="flex flex-col items-center py-3 rounded-xl gap-0.5"
                       style={{
-                        background: "rgba(200,151,58,0.06)",
-                        border: "1px solid rgba(200,151,58,0.14)",
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        padding: "14px 8px",
+                        borderRadius: 16,
+                        gap: 3,
+                        background: "#f4f6fc",
+                        border: "1px solid rgba(5,10,48,0.08)",
                       }}
                     >
                       <span
                         style={{
-                          fontFamily: "'Playfair Display',serif",
-                          fontSize: "1.3rem",
-                          fontWeight: 700,
-                          color: "#C8973A",
+                          fontFamily: "'Poppins',sans-serif",
+                          fontSize: "1.35rem",
+                          fontWeight: 800,
+                          color: "#050a30",
                           lineHeight: 1,
                         }}
                       >
@@ -439,11 +701,12 @@ const About = () => {
                       </span>
                       <span
                         style={{
-                          fontFamily: "'DM Sans',sans-serif",
-                          fontSize: "0.6rem",
+                          fontFamily: "'Poppins',sans-serif",
+                          fontSize: "0.57rem",
                           letterSpacing: "0.1em",
                           textTransform: "uppercase",
-                          color: "rgba(42,31,20,0.45)",
+                          color: "rgba(5,10,48,0.4)",
+                          fontWeight: 500,
                         }}
                       >
                         {s.l}
@@ -456,26 +719,46 @@ const About = () => {
           </div>
         </section>
 
-        {/* ━━━━━ WHY CHOOSE US ━━━━━ */}
+        {/* ══════ WHY CHOOSE US ══════ */}
         <section
-          className="py-14 lg:py-20 relative"
           style={{
-            background: "linear-gradient(160deg,#F2E8D5 0%,#FAF6EF 100%)",
+            padding: "64px 0 72px",
+            background: "#f4f6fc",
+            position: "relative",
           }}
         >
           <div
-            className="absolute inset-0 pointer-events-none opacity-20"
-            style={{ backgroundImage: GRAIN, backgroundSize: "180px" }}
+            style={{
+              position: "absolute",
+              inset: 0,
+              backgroundImage: DOTS,
+              backgroundSize: "20px",
+              opacity: 0.45,
+            }}
           />
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              height: 2,
+              backgroundImage: STITCH_NAVY,
+            }}
+          />
+
           <div className="relative max-w-7xl mx-auto px-5 sm:px-8">
-            <div className="text-center mb-10 ab-enter">
-              <SectionEyebrow label="Our Promise" />
+            <div
+              style={{ textAlign: "center", marginBottom: 44 }}
+              className="ab-enter"
+            >
+              <Eyebrow label="Our Promise" />
               <h2
                 style={{
-                  fontFamily: "'Playfair Display',serif",
-                  fontSize: "clamp(1.7rem,4vw,2.5rem)",
-                  fontWeight: 700,
-                  color: "#2A1F14",
+                  fontFamily: "'Poppins',sans-serif",
+                  fontSize: "clamp(1.7rem,4vw,2.6rem)",
+                  fontWeight: 800,
+                  color: "#050a30",
                   letterSpacing: "-0.02em",
                   lineHeight: 1.1,
                 }}
@@ -483,13 +766,9 @@ const About = () => {
                 Why Choose{" "}
                 <span
                   style={{
-                    fontFamily: "'Cormorant Garamond',serif",
                     fontStyle: "italic",
-                    fontWeight: 400,
-                    background: "linear-gradient(90deg,#C8973A,#A67828)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
+                    color: "#c49015",
+                    fontWeight: 600,
                   }}
                 >
                   Us?
@@ -497,80 +776,94 @@ const About = () => {
               </h2>
             </div>
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(2,1fr)",
+                gap: 14,
+              }}
+              className="lg:grid-cols-4"
+            >
               {whyUs.map((w, i) => (
                 <div
                   key={w.title}
-                  className="why-card ab-enter group flex flex-col items-center text-center gap-3 p-4 sm:p-6 rounded-2xl cursor-default"
+                  className="why-card ab-enter"
                   style={{
-                    background: "rgba(250,246,239,0.9)",
-                    border: "1px solid rgba(200,151,58,0.14)",
-                    boxShadow: "0 2px 14px rgba(42,31,20,0.05)",
-                    transition:
-                      "box-shadow 0.3s, border-color 0.3s, transform 0.3s",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.boxShadow =
-                      "0 10px 36px rgba(42,31,20,0.12)";
-                    e.currentTarget.style.borderColor = "rgba(200,151,58,0.35)";
-                    e.currentTarget.style.transform = "translateY(-3px)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.boxShadow =
-                      "0 2px 14px rgba(42,31,20,0.05)";
-                    e.currentTarget.style.borderColor = "rgba(200,151,58,0.14)";
-                    e.currentTarget.style.transform = "translateY(0)";
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    textAlign: "center",
+                    gap: 12,
+                    padding: "24px 18px",
+                    borderRadius: 24,
+                    background: "#fff",
+                    border: "1.5px solid rgba(5,10,48,0.07)",
+                    boxShadow: "0 2px 16px rgba(5,10,48,0.05)",
+                    animationDelay: `${i * 0.07}s`,
                   }}
                 >
                   <div
-                    className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center overflow-hidden transition-all duration-300"
                     style={{
-                      background: "linear-gradient(135deg,#F5EDD8,#EDE0C4)",
-                      border: "1px solid rgba(200,151,58,0.2)",
+                      width: 64,
+                      height: 64,
+                      borderRadius: 20,
+                      background: "linear-gradient(135deg,#f4f6fc,#eaedfa)",
+                      border: "1.5px solid rgba(5,10,48,0.08)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      overflow: "hidden",
                     }}
                   >
                     <img
                       src={w.img}
                       alt={w.title}
-                      className="why-img w-9 h-9 object-contain transition-transform duration-500"
+                      className="why-img"
+                      style={{
+                        width: 40,
+                        height: 40,
+                        objectFit: "contain",
+                        transition: "transform 0.5s",
+                      }}
                     />
                   </div>
                   <h3
                     style={{
-                      fontFamily: "'Playfair Display',serif",
-                      fontSize: "clamp(0.82rem,2vw,0.95rem)",
-                      fontWeight: 600,
-                      color: "#2A1F14",
-                      lineHeight: 1.2,
+                      fontFamily: "'Poppins',sans-serif",
+                      fontSize: "clamp(0.8rem,2vw,0.92rem)",
+                      fontWeight: 700,
+                      color: "#050a30",
+                      lineHeight: 1.3,
                     }}
                   >
                     {w.title}
                   </h3>
                   <p
                     style={{
-                      fontFamily: "'DM Sans',sans-serif",
-                      fontSize: "clamp(0.68rem,1.8vw,0.78rem)",
-                      color: "rgba(42,31,20,0.52)",
+                      fontFamily: "'Poppins',sans-serif",
+                      fontSize: "clamp(0.67rem,1.6vw,0.76rem)",
+                      color: "rgba(5,10,48,0.48)",
                       fontWeight: 300,
-                      lineHeight: 1.65,
+                      lineHeight: 1.7,
                     }}
                   >
                     {w.desc}
                   </p>
                   <Link
                     to="/shop"
+                    className="explore-link"
                     style={{
-                      fontFamily: "'DM Sans',sans-serif",
-                      fontSize: "0.65rem",
-                      letterSpacing: "0.12em",
+                      fontFamily: "'Poppins',sans-serif",
+                      fontSize: "0.6rem",
+                      letterSpacing: "0.1em",
                       textTransform: "uppercase",
-                      color: "#C8973A",
+                      color: "#c49015",
                       textDecoration: "none",
                       display: "flex",
                       alignItems: "center",
                       gap: 4,
+                      fontWeight: 700,
                     }}
-                    className="hover:opacity-70 transition-opacity"
                   >
                     Explore <ArrowRight size={10} />
                   </Link>
@@ -580,195 +873,135 @@ const About = () => {
           </div>
         </section>
 
-        {/* ━━━━━ VALUES ━━━━━ */}
-        <section className="py-14 lg:py-20 relative overflow-hidden">
+        {/* ══════ FEATURES STRIP ══════ */}
+        <section
+          style={{
+            padding: "56px 0 64px",
+            background: "#050a30",
+            position: "relative",
+            overflow: "hidden",
+          }}
+        >
           <div
-            className="absolute inset-0 pointer-events-none opacity-20"
-            style={{ backgroundImage: GRAIN, backgroundSize: "180px" }}
-          />
-          <div
-            className="absolute top-0 right-1/4 w-80 h-80 pointer-events-none"
             style={{
-              background:
-                "radial-gradient(circle,rgba(200,151,58,0.06) 0%,transparent 70%)",
-              filter: "blur(50px)",
+              position: "absolute",
+              inset: 0,
+              backgroundImage: DOTS,
+              backgroundSize: "20px",
+              opacity: 0.15,
             }}
           />
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              height: 3,
+              backgroundImage: STITCH_GOLD,
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              bottom: 0,
+              left: 0,
+              right: 0,
+              height: 3,
+              backgroundImage: STITCH_GOLD,
+            }}
+          />
+
           <div className="relative max-w-7xl mx-auto px-5 sm:px-8">
-            <div className="text-center mb-10 ab-enter">
-              <SectionEyebrow label="What Drives Us" />
+            <div style={{ textAlign: "center", marginBottom: 40 }}>
+              <Eyebrow label="Our Commitments" />
               <h2
                 style={{
-                  fontFamily: "'Playfair Display',serif",
-                  fontSize: "clamp(1.7rem,4vw,2.5rem)",
+                  fontFamily: "'Poppins',sans-serif",
+                  fontSize: "clamp(1.5rem,3.5vw,2.2rem)",
                   fontWeight: 700,
-                  color: "#2A1F14",
+                  color: "#f5f2ec",
                   letterSpacing: "-0.02em",
                 }}
               >
-                Our{" "}
+                The Creative N Colourful{" "}
                 <span
                   style={{
-                    fontFamily: "'Cormorant Garamond',serif",
                     fontStyle: "italic",
-                    fontWeight: 400,
-                    background: "linear-gradient(90deg,#C8973A,#A67828)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
+                    color: "#f0c040",
+                    fontWeight: 600,
                   }}
                 >
-                  Values
+                  Promise
                 </span>
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
-              {values.map((v, i) => (
-                <div
-                  key={v.title}
-                  className="val-card ab-enter group flex gap-5 p-5 sm:p-6 rounded-2xl"
-                  style={{
-                    background: "rgba(250,246,239,0.88)",
-                    border: "1px solid rgba(200,151,58,0.14)",
-                    boxShadow: "0 2px 14px rgba(42,31,20,0.05)",
-                    transition: "box-shadow 0.3s, border-color 0.3s",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.boxShadow =
-                      "0 10px 36px rgba(42,31,20,0.11)";
-                    e.currentTarget.style.borderColor = "rgba(200,151,58,0.3)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.boxShadow =
-                      "0 2px 14px rgba(42,31,20,0.05)";
-                    e.currentTarget.style.borderColor = "rgba(200,151,58,0.14)";
-                  }}
-                >
-                  <div
-                    className="val-icon flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300"
-                    style={{
-                      background: "linear-gradient(135deg,#2A1F14,#3D2B18)",
-                      boxShadow: "0 4px 14px rgba(42,31,20,0.2)",
-                    }}
-                  >
-                    <v.icon size={20} style={{ color: "#C8973A" }} />
-                  </div>
-                  <div className="flex flex-col gap-1.5">
-                    <h3
-                      style={{
-                        fontFamily: "'Playfair Display',serif",
-                        fontSize: "1rem",
-                        fontWeight: 600,
-                        color: "#2A1F14",
-                        lineHeight: 1.2,
-                      }}
-                    >
-                      {v.title}
-                    </h3>
-                    <p
-                      style={{
-                        fontFamily: "'DM Sans',sans-serif",
-                        fontSize: "0.83rem",
-                        color: "rgba(42,31,20,0.55)",
-                        fontWeight: 300,
-                        lineHeight: 1.75,
-                      }}
-                    >
-                      {v.desc}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ━━━━━ FEATURES STRIP ━━━━━ */}
-        <section
-          className="py-12 lg:py-16 relative overflow-hidden"
-          style={{
-            background:
-              "linear-gradient(135deg,#2A1F14 0%,#3D2B18 50%,#2A1F14 100%)",
-          }}
-        >
-          <div
-            className="absolute inset-0 pointer-events-none opacity-30"
-            style={{ backgroundImage: GRAIN, backgroundSize: "180px" }}
-          />
-          <div className="relative max-w-7xl mx-auto px-5 sm:px-8">
-            <div className="text-center mb-10">
-              <SectionEyebrow label="Our Commitments" />
-              <h2
-                style={{
-                  fontFamily: "'Playfair Display',serif",
-                  fontSize: "clamp(1.5rem,3.5vw,2.2rem)",
-                  fontWeight: 700,
-                  color: "#FAF6EF",
-                  letterSpacing: "-0.02em",
-                }}
-              >
-                The{" "}
-                <span
-                  style={{
-                    fontFamily: "'Cormorant Garamond',serif",
-                    fontStyle: "italic",
-                    fontWeight: 400,
-                    color: "#C8973A",
-                  }}
-                >
-                  Asvadvadat
-                </span>{" "}
-                Promise
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(2,1fr)",
+                gap: 12,
+              }}
+              className="lg:grid-cols-4"
+            >
               {features.map((f, i) => (
                 <div
                   key={f.title}
-                  className="ab-enter flex flex-col items-center text-center gap-3 p-4 sm:p-5 rounded-2xl group"
+                  className="feat-card ab-enter"
                   style={{
-                    background: "rgba(200,151,58,0.07)",
-                    border: "1px solid rgba(200,151,58,0.15)",
-                    transition: "background 0.3s, border-color 0.3s",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = "rgba(200,151,58,0.13)";
-                    e.currentTarget.style.borderColor = "rgba(200,151,58,0.35)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = "rgba(200,151,58,0.07)";
-                    e.currentTarget.style.borderColor = "rgba(200,151,58,0.15)";
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    textAlign: "center",
+                    gap: 10,
+                    padding: "20px 16px",
+                    borderRadius: 20,
+                    background: "rgba(255,255,255,0.05)",
+                    border: "1px solid rgba(255,255,255,0.1)",
+                    animationDelay: `${i * 0.07}s`,
                   }}
                 >
                   <div
-                    className="w-11 h-11 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
+                    className="feat-icon"
                     style={{
-                      background: "rgba(200,151,58,0.12)",
-                      border: "1px solid rgba(200,151,58,0.2)",
+                      width: 44,
+                      height: 44,
+                      borderRadius: 14,
+                      background: "rgba(196,144,21,0.12)",
+                      border: "1px solid rgba(196,144,21,0.2)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      transition: "background 0.3s",
                     }}
                   >
-                    <f.icon size={18} style={{ color: "#C8973A" }} />
+                    <f.icon
+                      size={18}
+                      color="#f0c040"
+                      style={{ transition: "color 0.3s" }}
+                    />
                   </div>
                   <h3
                     style={{
-                      fontFamily: "'Playfair Display',serif",
-                      fontSize: "clamp(0.82rem,2vw,0.95rem)",
+                      fontFamily: "'Poppins',sans-serif",
+                      fontSize: "clamp(0.8rem,2vw,0.92rem)",
                       fontWeight: 600,
-                      color: "#FAF6EF",
+                      color: "#f5f2ec",
                       lineHeight: 1.2,
+                      transition: "color 0.3s",
                     }}
                   >
                     {f.title}
                   </h3>
                   <p
                     style={{
-                      fontFamily: "'DM Sans',sans-serif",
+                      fontFamily: "'Poppins',sans-serif",
                       fontSize: "0.72rem",
-                      color: "rgba(250,246,239,0.5)",
+                      color: "rgba(245,242,236,0.45)",
                       fontWeight: 300,
                       lineHeight: 1.6,
+                      transition: "color 0.3s",
                     }}
                   >
                     {f.sub}
@@ -779,111 +1012,144 @@ const About = () => {
           </div>
         </section>
 
-        {/* ━━━━━ CTA ━━━━━ */}
+        {/* ══════ CTA ══════ */}
         <section
-          className="py-16 lg:py-24 relative overflow-hidden"
           style={{
-            background: "linear-gradient(160deg,#FAF6EF 0%,#F2E8D5 100%)",
+            padding: "72px 0 80px",
+            background: "#f4f6fc",
+            position: "relative",
+            overflow: "hidden",
           }}
         >
           <div
-            className="absolute inset-0 pointer-events-none opacity-20"
-            style={{ backgroundImage: GRAIN, backgroundSize: "180px" }}
+            style={{
+              position: "absolute",
+              inset: 0,
+              backgroundImage: DOTS,
+              backgroundSize: "20px",
+              opacity: 0.5,
+            }}
           />
           <div
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 pointer-events-none"
             style={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%,-50%)",
+              width: 560,
+              height: 380,
               background:
-                "radial-gradient(circle,rgba(200,151,58,0.08) 0%,transparent 70%)",
+                "radial-gradient(ellipse,rgba(5,10,48,0.05) 0%,transparent 70%)",
               filter: "blur(40px)",
             }}
           />
-          <div className="relative max-w-3xl mx-auto px-5 sm:px-8 text-center flex flex-col items-center gap-6">
-            <SectionEyebrow label="Get Started" />
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              height: 2,
+              backgroundImage: STITCH_NAVY,
+            }}
+          />
+
+          <div
+            className="relative max-w-3xl mx-auto px-5 sm:px-8"
+            style={{
+              textAlign: "center",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: 20,
+            }}
+          >
+            <Eyebrow label="Get Started" />
+
             <h2
               style={{
-                fontFamily: "'Playfair Display',serif",
-                fontSize: "clamp(1.8rem,4.5vw,3rem)",
-                fontWeight: 700,
-                color: "#2A1F14",
+                fontFamily: "'Poppins',sans-serif",
+                fontSize: "clamp(1.9rem,5vw,3rem)",
+                fontWeight: 800,
+                color: "#050a30",
                 letterSpacing: "-0.02em",
                 lineHeight: 1.1,
               }}
             >
-              Ready to Elevate{" "}
+              Ready to Add a Splash of{" "}
               <span
                 style={{
-                  fontFamily: "'Cormorant Garamond',serif",
                   fontStyle: "italic",
-                  fontWeight: 400,
-                  background: "linear-gradient(90deg,#C8973A,#A67828)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
+                  color: "#c49015",
+                  fontWeight: 700,
                 }}
               >
-                Your Cooking?
+                Colour?
               </span>
             </h2>
+
             <p
               style={{
-                fontFamily: "'DM Sans',sans-serif",
+                fontFamily: "'Poppins',sans-serif",
                 fontSize: "0.9rem",
-                color: "rgba(42,31,20,0.55)",
+                color: "rgba(5,10,48,0.5)",
                 fontWeight: 300,
-                lineHeight: 1.8,
-                maxWidth: 440,
+                lineHeight: 1.9,
+                maxWidth: 420,
               }}
             >
-              Join the Asvadvadat family and bring authentic flavours to your
-              kitchen. Explore our premium 100% natural spices and teas today.
+              Join the Creative N Colourful family and bring handcrafted joy
+              into your home. Explore our vibrant collection of 100% handmade
+              products today.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3">
+
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: 10,
+                marginTop: 6,
+              }}
+              className="sm:flex-row"
+            >
               <Link
                 to="/shop"
-                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-medium tracking-wide transition-all duration-300"
+                className="btn-primary"
                 style={{
-                  fontFamily: "'DM Sans',sans-serif",
+                  fontFamily: "'Poppins',sans-serif",
                   fontSize: "0.85rem",
-                  letterSpacing: "0.05em",
-                  background: "linear-gradient(135deg,#C8973A,#A67828)",
-                  color: "#FAF6EF",
+                  letterSpacing: "0.04em",
+                  background: "#050a30",
+                  color: "#fff",
                   textDecoration: "none",
-                  boxShadow: "0 4px 22px rgba(200,151,58,0.35)",
+                  padding: "13px 32px",
+                  borderRadius: 999,
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 8,
+                  fontWeight: 600,
+                  boxShadow: "0 4px 20px rgba(5,10,48,0.18)",
                 }}
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.boxShadow =
-                    "0 6px 30px rgba(200,151,58,0.5)")
-                }
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.boxShadow =
-                    "0 4px 22px rgba(200,151,58,0.35)")
-                }
               >
                 Shop Now <ArrowRight size={14} />
               </Link>
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-medium tracking-wide transition-all duration-300"
+                className="btn-outline"
                 style={{
-                  fontFamily: "'DM Sans',sans-serif",
+                  fontFamily: "'Poppins',sans-serif",
                   fontSize: "0.85rem",
-                  letterSpacing: "0.05em",
-                  border: "1.5px solid rgba(200,151,58,0.4)",
-                  color: "#8A6040",
+                  letterSpacing: "0.04em",
+                  background: "transparent",
+                  color: "#050a30",
                   textDecoration: "none",
-                  background: "rgba(200,151,58,0.04)",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background =
-                    "linear-gradient(135deg,#2A1F14,#3D2B18)";
-                  e.currentTarget.style.color = "#FAF6EF";
-                  e.currentTarget.style.borderColor = "transparent";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "rgba(200,151,58,0.04)";
-                  e.currentTarget.style.color = "#8A6040";
-                  e.currentTarget.style.borderColor = "rgba(200,151,58,0.4)";
+                  padding: "13px 32px",
+                  borderRadius: 999,
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 8,
+                  fontWeight: 500,
+                  border: "1.5px solid rgba(5,10,48,0.25)",
                 }}
               >
                 Contact Us

@@ -28,7 +28,7 @@ const Login = () => {
         e.preventDefault()
         setIsLoading(true)
         try {
-            const response = await axios.post('https://api.interdecor.adsdigitalmedia.com/api/v1/login', formData)
+            const response = await axios.post('http://localhost:7913/api/v1/login', formData)
             setIsLoading(false);
             toast.success('Successfully logged in')
             sessionStorage.setItem('token_login', response.data.token);
@@ -70,7 +70,7 @@ const Login = () => {
                     {/* <div className="w-20 h-20 bg-[#FFB229]/20 rounded-full flex items-center justify-center mx-auto mb-6">
                         <User className="w-10 h-10 text-[#81190B]" />
                     </div> */}
-                    <p className="text-gray-600 mb-6">You've successfully logged into <span className="font-semibold text-[#FFB229]">Asvadvadat Spice & Tea Co</span>. Ready to shop?</p>
+                    <p className="text-gray-600 mb-6">You've successfully logged into <span className="font-semibold text-[#FFB229]">Creative N Colourful </span>. Ready to shop?</p>
                     <div className="space-y-3">
                         <Link
                             to={'/cart'}
@@ -109,7 +109,7 @@ const Login = () => {
                     {/* Header */}
                     <div className="bg-gradient-to-r from-[#81190B] to-[#FFB229] p-8 text-center">
                         {/* <ShoppingBag className="w-16 h-16 text-white mx-auto mb-4 drop-shadow-lg" /> */}
-                        <p className="text-[#fff]/90">Sign in to your <span className="font-semibold">Asvadvadat Spice & Tea Co.</span> account</p>
+                        <p className="text-[#fff]/90">Sign in to your <span className="font-semibold">Creative N Colourful </span> account</p>
                     </div>
 
                     {/* Form */}

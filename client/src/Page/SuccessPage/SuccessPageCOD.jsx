@@ -145,7 +145,7 @@ export default function SuccessPageCOD() {
       try {
         setLoading(true);
         const res = await fetch(
-          `https://api.interdecor.adsdigitalmedia.com/api/v1/my-recent-cod-order/${encodeURIComponent(orderId)}`,
+          `http://localhost:7913/api/v1/my-recent-cod-order/${encodeURIComponent(orderId)}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -204,10 +204,10 @@ const totals = useMemo(() => {
       return;
     }
 
-    const siteName = settings?.siteName || "Asvadvadat Spice & Tea Co.";
+    const siteName = settings?.siteName || "Creative N Colourful ";
     const companyGST = "22AAAAA0000A1Z5"; // ← Replace with real GSTIN
-    const companyAddress = "Asvadvadat Spice & Tea Co., Mumbai, Maharashtra - 400001";
-    const companyEmail = settings?.supportEmail || "support@asvadvadat.com";
+    const companyAddress = "Creative N Colourful , Mumbai, Maharashtra - 400001";
+    const companyEmail = settings?.supportEmail || "support@Creative N Colourful .com";
 
     const doc = new jsPDF();
     const pageWidth = doc.internal.pageSize.getWidth();
@@ -424,9 +424,9 @@ const totals = useMemo(() => {
     );
   }
 
-  const siteName = settings?.siteName || "Asvadvadat";
+  const siteName = settings?.siteName || "Creative N Colourful ";
   const contactNumber = settings?.contactNumber || "+91 XXXX XXXX";
-  const supportEmail = settings?.supportEmail || "support@asvadvadat.com";
+  const supportEmail = settings?.supportEmail || "support@Creative N Colourful .com";
 
   return (
     <>

@@ -94,7 +94,7 @@ const VerifyOtp = ({ onVerificationSuccess }) => {
 
         try {
             // Using the same API endpoint as the Otp component
-            const response = await fetch('https://api.interdecor.adsdigitalmedia.com/api/v1/verify-otp', {
+            const response = await fetch('http://localhost:7913/api/v1/verify-otp', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -141,7 +141,7 @@ const VerifyOtp = ({ onVerificationSuccess }) => {
 
         try {
             // Using the same API endpoint as the Otp component
-            const response = await fetch('https://api.interdecor.adsdigitalmedia.com/api/v1/resend-otp', {
+            const response = await fetch('http://localhost:7913/api/v1/resend-otp', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -194,7 +194,7 @@ const VerifyOtp = ({ onVerificationSuccess }) => {
                     </h2>
                     <p className="text-gray-600 mb-6">
                         {successMessage || (type === 'register' 
-                            ? 'Your account has been verified successfully. Welcome to Asvadvadat Spice & Tea Co. !' 
+                            ? 'Your account has been verified successfully. Welcome to Creative N Colourful  !' 
                             : 'Your password has been reset successfully. You can now log in with your new password.'
                         )}
                     </p>

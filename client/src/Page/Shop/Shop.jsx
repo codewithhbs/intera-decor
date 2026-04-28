@@ -5,7 +5,7 @@ import bgImage from "./bg-about.jpg";
 import ProductCard from "../../Components/FeatureProduct/ProductCard";
 import ProductModal from "../../Components/FeatureProduct/ProductModel";
 
-const API = "https://api.interdecor.adsdigitalmedia.com/api/v1";
+const API = "http://localhost:7913/api/v1";
 
 const GRAIN = `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E")`;
 
@@ -51,9 +51,9 @@ const BrandedSelect = ({ value, onChange, children, label }) => {
         style={{
           fontFamily: "'DM Sans', sans-serif",
           fontSize: "0.78rem",
-          color: "#2A1F14",
-          background: "rgba(250,246,239,0.9)",
-          border: "1.5px solid rgba(200,151,58,0.25)",
+          color: "#000000",
+          background: "rgba(255, 255, 255, 0.9)",
+          border: "1.5px solid rgba(0, 0, 0, 0.25)",
           letterSpacing: "0.03em",
         }}
       >
@@ -84,7 +84,7 @@ const transformProduct = (p) => {
     ...p,
     id: p._id,
     name: p.product_name,
-    brand: p.category?.name || "Asvadvadat",
+    brand: p.category?.name || "Creative N Colourful ",
     price: getLowest(),
     originalPrice: getOriginal(),
     discount: getDiscount(),
@@ -251,17 +251,17 @@ const Shop = () => {
           style={{ minHeight: 320, backgroundImage: `url(${bgImage})`, backgroundSize: "cover", backgroundPosition: "center top" }}
         >
           <div className="absolute inset-0"
-            style={{ background: "linear-gradient(to bottom, rgba(28,18,8,0.75) 0%, rgba(28,18,8,0.55) 60%, rgba(242,232,213,1) 100%)" }} />
-          <div className="absolute inset-0 opacity-25 pointer-events-none"
+            style={{ background: "linear-gradient(rgb(5 10 48) 0%, rgb(17 35 37 / 69%) 100%, rgb(242, 232, 213) 100%)" }} />
+          <div className="absolute inset-0 opacity-10 pointer-events-none"
             style={{ backgroundImage: GRAIN, backgroundSize: "180px" }} />
 
           <div className="relative max-w-5xl mx-auto px-5 py-20 sm:py-28 text-center shop-enter">
             <p style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.62rem", letterSpacing: "0.28em", textTransform: "uppercase", color: "#E6C882", marginBottom: 12, display: "flex", alignItems: "center", justifyContent: "center", gap: 6 }}>
-              <Leaf size={10} /> Asvadvadat Spice & Tea Co.
+              <Leaf size={10} /> Creative N Colourful
             </p>
-            <h1 style={{ fontFamily: "'Playfair Display',serif", fontSize: "clamp(2rem,6vw,3.5rem)", fontWeight: 800, color: "#FAF6EF", lineHeight: 1.1, letterSpacing: "-0.02em" }}>
+            <h1 style={{ fontFamily: "'poppins',serif", fontSize: "clamp(2rem,6vw,3.5rem)", fontWeight: 800, color: "#FAF6EF", lineHeight: 1.1, letterSpacing: "-0.02em" }}>
               Our{" "}
-              <span style={{ fontFamily: "'Cormorant Garamond',serif", fontStyle: "italic", fontWeight: 400, background: "linear-gradient(90deg,#C8973A,#E6C882)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+              <span style={{ fontFamily: "'poppins',serif", fontStyle: "italic", fontWeight: 400, background: "linear-gradient(90deg,#C8973A,#E6C882)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
                 Collection
               </span>
             </h1>

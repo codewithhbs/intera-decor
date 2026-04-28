@@ -1,27 +1,31 @@
 "use client";
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
+import Slide1 from "./banner-01.png";
+import Slide2 from "./banner-02.png";
+import Slide3 from "./banner-02.png";
+import Slide4 from "./banner-01.png";
 import "./HeroBanner.css";
 
 const SLIDES = [
   {
     id: 1,
-    src: "https://confettigifts.in/cdn/shop/files/Website_updated_banner_5_1_680b9c15-ce7b-49bb-83a9-9e420ebe3808.jpg?v=1770102274&width=1920",
+    src: Slide1,
     alt: "Handcrafted textile 1",
   },
   {
     id: 2,
-    src: "https://confettigifts.in/cdn/shop/files/Website_banner_Wallet_Card_1.png?v=1773405156&width=1920",
+    src: Slide2,
     alt: "Handcrafted textile 2",
   },
   {
     id: 3,
-    src: "https://confettigifts.in/cdn/shop/files/Website_updated_banner_632ba9d3-507f-4efd-9404-a36a34debe49.jpg?v=1775640196&width=1920",
+    src: Slide3,
     alt: "Handcrafted textile 3",
   },
   {
     id: 4,
-    src: "https://confettigifts.in/cdn/shop/files/Website_updated_banner_632ba9d3-507f-4efd-9404-a36a34debe49.jpg?v=1775640196&width=1920",
+    src: Slide4,
     alt: "Handcrafted textile 4",
   },
 ];

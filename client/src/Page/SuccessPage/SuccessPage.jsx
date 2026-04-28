@@ -18,7 +18,7 @@ import axios from "axios";
 import jsPDF from "jspdf";
 import autoTable from 'jspdf-autotable';
 
-const API_BASE = "https://api.interdecor.adsdigitalmedia.com/api/v1";
+const API_BASE = "http://localhost:7913/api/v1";
 
 const styleSheet = `
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Lora:wght@400;500;600&display=swap');
@@ -276,10 +276,10 @@ export default function SuccessPage() {
   const handleDownloadPDF = () => {
     if (!order || !totals) return;
 
-    const siteName = settings?.siteName || "Asvadvadat Spice & Tea Co.";
+    const siteName = settings?.siteName || "Creative N Colourful ";
     const companyGST = "22AAAAA0000A1Z5"; 
-    const companyAddress = "Asvadvadat Spice & Tea Co., Mumbai, Maharashtra - 400001";
-    const companyEmail = settings?.supportEmail || "support@asvadvadat.com";
+    const companyAddress = "Creative N Colourful , Mumbai, Maharashtra - 400001";
+    const companyEmail = settings?.supportEmail || "support@Creative N Colourful .com";
 
     const doc = new jsPDF();
     const pageWidth = doc.internal.pageSize.getWidth();
@@ -515,7 +515,7 @@ export default function SuccessPage() {
     return null;
   }
 
-  const siteName = settings?.siteName || "Asvadvadat Spice & Tea Co.";
+  const siteName = settings?.siteName || "Creative N Colourful ";
   const contactEmail = settings?.supportEmail || "support@grandmasala.com";
   const contactPhone = settings?.contactNumber || "+91 XXXX XXXX";
 
