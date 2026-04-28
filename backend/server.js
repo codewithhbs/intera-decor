@@ -22,6 +22,8 @@ const corsOptions = {
             "http://localhost:5173",
             "http://localhost:5174",
             "http://localhost:3000",
+            "https://cretativecolors.adsdigitalmedia.com",
+            "https://www.cretativecolors.adsdigitalmedia.com",
             "http://localhost:3001",
             "https://asvadavat.com",
             "https://www.asvadavat.com",
