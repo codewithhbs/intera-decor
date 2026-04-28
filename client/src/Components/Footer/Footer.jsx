@@ -22,7 +22,7 @@ import {
 } from "lucide-react";
 import "./Footer.css";
 
-const API = "https://api.interdecor.adsdigitalmedia.comapi/v1";
+const API = "https://api.interdecor.adsdigitalmedia.com/api/v1";
 
 const quickLinks = [
   { label: "Home", to: "/" },
