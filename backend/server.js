@@ -26,9 +26,11 @@ const corsOptions = {
             "https://cretativecolors.adsdigitalmedia.com",
             "https://www.cretativecolors.adsdigitalmedia.com",
             "http://localhost:3001",
-            "https://creativencolourful.com.com",
-            "https://www.creativencolourful.com.com",
-            "https://www.admin.creativencolourful.com.com",
+            "https://creativencolourful.com",
+            "https://www.creativencolourful.com",
+            "https://www.admin.creativencolourful.com",
+            "https://admin.creativencolourful.com",
+
         ];
 
         // exact match
