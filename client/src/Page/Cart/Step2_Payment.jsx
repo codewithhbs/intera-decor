@@ -68,7 +68,7 @@ const Step2_Payment = ({ onSelect, setting }) => {
                 <Icon size={20} style={{ color: "#FAF6EF" }} />
               </div>
               <div className="flex-1 text-left">
-                <p style={{ fontFamily: "'Playfair Display',serif", fontSize: "1rem", fontWeight: 600, color: "#2A1F14" }}>
+                <p style={{ fontFamily: "'poppins',serif", fontSize: "1rem", fontWeight: 600, color: "#2A1F14" }}>
                   {opt.title}
                 </p>
                 <p style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.78rem", color: "rgba(42,31,20,0.5)", marginTop: 2 }}>

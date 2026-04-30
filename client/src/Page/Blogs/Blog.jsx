@@ -207,15 +207,8 @@ const BlogSection = () => {
                 WebkitTextFillColor: 'transparent',
               }}
             >
-              Spice & Tea Stories
+              News
             </h2>
-
-            <p
-              className="text-base sm:text-lg max-w-2xl mx-auto"
-              style={{ color: 'rgba(42,31,20,0.55)', fontWeight: 300 }}
-            >
-              Discover recipes, brewing guides, origin stories and the art behind every cup and blend.
-            </p>
           </div>
 
           {/* Blog Grid */}

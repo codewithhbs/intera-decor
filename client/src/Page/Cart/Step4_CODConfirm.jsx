@@ -23,7 +23,7 @@ const Step4_CODConfirm = ({ orderTotal, codAdvancePaid, onPayAdvance, loading, s
         <p style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.65rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "rgba(42,31,20,0.4)", marginBottom: 6 }}>
           Pay on Delivery
         </p>
-        <p style={{ fontFamily: "'Playfair Display',serif", fontSize: "2rem", fontWeight: 800, color: "#2A1F14", letterSpacing: "-0.02em" }}>
+        <p style={{ fontFamily: "'poppins',serif", fontSize: "2rem", fontWeight: 800, color: "#2A1F14", letterSpacing: "-0.02em" }}>
           ₹{orderTotal?.toFixed(2)}
         </p>
         <div className="flex items-center justify-center gap-1.5 mt-2">

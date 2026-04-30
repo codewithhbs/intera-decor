@@ -4,18 +4,21 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { API } from "../../constant/api";
 import ProductCard from "./ProductCard";
-import ProductModel from './ProductModel';
-import './FeaturedProducts.css';  // ← import CSS here
+import ProductModel from "./ProductModel";
+import "./FeaturedProducts.css"; // ← import CSS here
 
 /* ── Skeleton card ── */
 const SkeletonCard = () => (
   <div className="fp-skeleton">
     <div className="fp-skeleton-img" />
     <div className="fp-skeleton-body">
-      <div className="fp-skeleton-line" style={{ width: '55%' }} />
-      <div className="fp-skeleton-line" style={{ width: '80%' }} />
-      <div className="fp-skeleton-line" style={{ width: '40%' }} />
-      <div className="fp-skeleton-line" style={{ width: '100%', height: 32, marginTop: 4, borderRadius: 10 }} />
+      <div className="fp-skeleton-line" style={{ width: "55%" }} />
+      <div className="fp-skeleton-line" style={{ width: "80%" }} />
+      <div className="fp-skeleton-line" style={{ width: "40%" }} />
+      <div
+        className="fp-skeleton-line"
+        style={{ width: "100%", height: 32, marginTop: 4, borderRadius: 10 }}
+      />
     </div>
   </div>
 );
@@ -32,7 +35,9 @@ const FeatureProduct = () => {
     try {
       setLoading(true);
       const { data } = await axios.get(`${API}/get-product`);
-      const filtered = (data?.products || []).filter((p) => p?.isShowOnHomeScreen === true);
+      const filtered = (data?.products || []).filter(
+        (p) => p?.isShowOnHomeScreen === true,
+      );
       setFeaturedProducts(filtered);
 
       const initVariants = {};
@@ -81,19 +86,20 @@ const FeatureProduct = () => {
             </div>
 
             <h2 className="fp-title">
-              Featured{" "}
-              <span>Products</span>
+              Featured <span>Products</span>
             </h2>
 
             <p className="fp-subtitle">
-              Curated selection of our finest spices &amp; teas — pure, aromatic, and handcrafted.
+              Curated selection of our finest handcrafted creations 
             </p>
           </div>
 
           {/* ── Product Grid ── */}
           {loading ? (
             <div className="fp-grid">
-              {[1, 2, 3, 4].map((i) => <SkeletonCard key={i} />)}
+              {[1, 2, 3, 4].map((i) => (
+                <SkeletonCard key={i} />
+              ))}
             </div>
           ) : featuredProducts.length === 0 ? (
             <div className="fp-empty">No featured products at the moment.</div>

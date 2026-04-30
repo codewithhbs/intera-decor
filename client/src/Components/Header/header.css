@@ -152,14 +152,14 @@
 .hdr-inner {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 0.5rem;
 }
 
 .hdr-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 78px;
+  height: 65px;
   gap: 1rem;
 }
 
@@ -195,7 +195,7 @@
 }
 
 .brand-name {
-  font-family: 'Playfair Display', serif;
+  font-family: 'poppins', serif;
   font-size: clamp(1.1rem, 2.5vw, 1.6rem);
   font-weight: 700;
   color: var(--ink);
@@ -598,7 +598,7 @@
 
   .hdr-brand {
     position: absolute;
-    left: 50%;
+    left: 43%;
     transform: translateX(-50%);
   }
 

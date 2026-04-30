@@ -22,7 +22,7 @@ const Step3_OnlinePayment = ({ orderTotal, onPay, loading, setting }) => {
         <p style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.65rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "rgba(42,31,20,0.4)", marginBottom: 6 }}>
           Amount to Pay
         </p>
-        <p style={{ fontFamily: "'Playfair Display',serif", fontSize: "2.2rem", fontWeight: 800, color: "#2A1F14", letterSpacing: "-0.02em" }}>
+        <p style={{ fontFamily: "'poppins',serif", fontSize: "2.2rem", fontWeight: 800, color: "#2A1F14", letterSpacing: "-0.02em" }}>
           ₹{orderTotal?.toFixed(2)}
         </p>
         <p style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.7rem", color: "rgba(42,31,20,0.4)", marginTop: 4 }}>

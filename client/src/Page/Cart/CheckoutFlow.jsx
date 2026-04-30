@@ -53,7 +53,7 @@ const SHARED_STYLES = `
   .co-card { background: rgba(250,246,239,0.92); border: 1px solid var(--border); border-radius: 20px; padding: 24px; backdrop-filter: blur(12px); box-shadow: 0 4px 28px rgba(42,31,20,0.07); }
   .co-card-header { display:flex; align-items:center; gap:14px; margin-bottom:22px; }
   .co-icon-wrap { width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0; box-shadow: 0 4px 12px rgba(42,31,20,0.18); }
-  .co-card-title { font-family:'Playfair Display',serif; font-size:clamp(1.05rem,2.5vw,1.25rem); font-weight:700; color:#2A1F14; margin:0; letter-spacing:-0.01em; }
+  .co-card-title { font-family:'poppins',serif; font-size:clamp(1.05rem,2.5vw,1.25rem); font-weight:700; color:#2A1F14; margin:0; letter-spacing:-0.01em; }
   .co-card-sub { font-family:'DM Sans',sans-serif; font-size:0.78rem; color:rgba(42,31,20,0.45); font-weight:300; margin:2px 0 0; }
 
   .co-grid { display:grid; grid-template-columns: repeat(12,1fr); gap:12px; margin-bottom:4px; }
@@ -192,7 +192,7 @@ const OrderSummary = ({
       }}
     >
       <Package size={15} style={{ color: "#C8973A" }} />
-      <h3 style={{ fontFamily: "'Playfair Display',serif", fontSize: "0.95rem", fontWeight: 600, color: "#2A1F14", margin: 0 }}>
+      <h3 style={{ fontFamily: "'poppins',serif", fontSize: "0.95rem", fontWeight: 600, color: "#2A1F14", margin: 0 }}>
         Order Summary
       </h3>
       <span style={{ marginLeft: "auto", fontFamily: "'DM Sans',sans-serif", fontSize: "0.65rem", color: "rgba(42,31,20,0.4)" }}>
@@ -225,13 +225,13 @@ const OrderSummary = ({
             <img src={item.image || "/placeholder.svg"} alt={item.product_name} className="w-full h-full object-cover" onError={e => (e.target.src = "/placeholder.svg")} />
           </div>
           <div className="flex-1 min-w-0">
-            <p style={{ fontFamily: "'Playfair Display',serif", fontSize: "0.8rem", fontWeight: 600, color: "#2A1F14", lineHeight: 1.25, overflow: "hidden", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" }}>
+            <p style={{ fontFamily: "'poppins',serif", fontSize: "0.8rem", fontWeight: 600, color: "#2A1F14", lineHeight: 1.25, overflow: "hidden", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" }}>
               {item.product_name}
             </p>
             {item.size && <p style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.6rem", color: "#C8973A" }}>{item.size}</p>}
             <p style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.65rem", color: "rgba(42,31,20,0.4)" }}>Qty: {item.quantity}</p>
           </div>
-          <p style={{ fontFamily: "'Playfair Display',serif", fontSize: "0.85rem", fontWeight: 700, color: "#2A1F14", flexShrink: 0 }}>
+          <p style={{ fontFamily: "'poppins',serif", fontSize: "0.85rem", fontWeight: 700, color: "#2A1F14", flexShrink: 0 }}>
             {currencySymbol}{formatPrice(item.price * item.quantity)}
           </p>
         </div>
@@ -246,8 +246,8 @@ const OrderSummary = ({
         {discountAmount > 0 && <div className="flex justify-between text-green-700"><span>Discount ({appliedCoupon?.code})</span><span>-{currencySymbol}{formatPrice(discountAmount)}</span></div>}
         {setting?.isTaxEnables && <div className="flex justify-between text-sm text-gray-500"><span>GST ({setting.taxRate}%)</span><span>{currencySymbol}{formatPrice(taxAmount)}</span></div>}
         <div className="pt-3 flex justify-between items-center" style={{ borderTop: "1px solid rgba(200,151,58,0.15)" }}>
-          <span style={{ fontFamily: "'Playfair Display',serif", fontSize: "0.95rem", fontWeight: 600 }}>Total</span>
-          <span style={{ fontFamily: "'Playfair Display',serif", fontSize: "1.3rem", fontWeight: 800 }}>{currencySymbol}{formatPrice(orderTotal)}</span>
+          <span style={{ fontFamily: "'poppins',serif", fontSize: "0.95rem", fontWeight: 600 }}>Total</span>
+          <span style={{ fontFamily: "'poppins',serif", fontSize: "1.3rem", fontWeight: 800 }}>{currencySymbol}{formatPrice(orderTotal)}</span>
         </div>
       </div>
     </div>
@@ -566,7 +566,7 @@ const CheckoutFlow = () => {
               <div className="flex flex-col items-center">
                 <div className="flex items-center gap-2">
                   <Leaf size={12} style={{ color: "#C8973A" }} />
-                  <span style={{ fontFamily: "'Playfair Display',serif", fontSize: "1rem", fontWeight: 700, color: "#2A1F14", letterSpacing: "-0.01em" }}>
+                  <span style={{ fontFamily: "'poppins',serif", fontSize: "1rem", fontWeight: 700, color: "#2A1F14", letterSpacing: "-0.01em" }}>
                     {setting?.siteName?.split(" ")[0] || "Creative N Colourful "}
                   </span>
                 </div>

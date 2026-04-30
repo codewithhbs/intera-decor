@@ -243,7 +243,7 @@ const Shop = () => {
         }
       `}</style>
 
-      <div style={{ background: "linear-gradient(160deg,#FAF6EF 0%,#F2E8D5 55%,#FAF6EF 100%)", minHeight: "100vh" }}>
+      <div style={{ background: "linear-gradient(160deg,#FFF 0%,#FFF 55%,#FFF 100%)", minHeight: "100vh" }}>
 
         {/* Hero Banner */}
         <div
@@ -251,7 +251,7 @@ const Shop = () => {
           style={{ minHeight: 320, backgroundImage: `url(${bgImage})`, backgroundSize: "cover", backgroundPosition: "center top" }}
         >
           <div className="absolute inset-0"
-            style={{ background: "linear-gradient(rgb(5 10 48) 0%, rgb(17 35 37 / 69%) 100%, rgb(242, 232, 213) 100%)" }} />
+            style={{ background: "linear-gradient(rgb(5 10 48) 0%, rgb(17 35 37 / 69%) 100%, rgb(255, 255, 255) 100%)" }} />
           <div className="absolute inset-0 opacity-10 pointer-events-none"
             style={{ backgroundImage: GRAIN, backgroundSize: "180px" }} />
 
@@ -266,7 +266,7 @@ const Shop = () => {
               </span>
             </h1>
             <p style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.88rem", color: "rgba(250,246,239,0.6)", fontWeight: 300, marginTop: 12, lineHeight: 1.75, maxWidth: 380, marginLeft: "auto", marginRight: "auto" }}>
-              {filtered.length}+ premium spices and teas — pure, aromatic, handcrafted.
+              {filtered.length}+ premium  handcrafted Products.
             </p>
 
             {/* Search in hero */}
@@ -336,7 +336,7 @@ const Shop = () => {
 
               <div className="flex items-center gap-3 flex-wrap">
                 <p style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.75rem", color: "rgba(42,31,20,0.45)" }}>
-                  <span style={{ fontFamily: "'Playfair Display',serif", fontSize: "1rem", fontWeight: 700, color: "#2A1F14" }}>{filtered.length}</span>
+                  <span style={{ fontFamily: "'poppins',serif", fontSize: "1rem", fontWeight: 700, color: "#2A1F14" }}>{filtered.length}</span>
                   {" "}products
                 </p>
                 <div className="h-4 w-px hidden sm:block" style={{ background: "rgba(200,151,58,0.25)" }} />
@@ -406,7 +406,7 @@ const Shop = () => {
           {loading ? (
             <SkeletonGrid />
           ) : filtered.length > 0 ? (
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5">
               {filtered.map((product, index) => (
                 <div key={product.id || product._id} className="shop-enter" style={{ animationDelay: `${index * 0.05}s` }}>
                   <ProductCard
@@ -452,7 +452,7 @@ const Shop = () => {
               ].map((s, i) => (
                 <div key={i} className="flex items-center gap-3">
                   <div className="text-center">
-                    <p style={{ fontFamily: "'Playfair Display',serif", fontSize: "1.1rem", fontWeight: 700, color: "#C8973A" }}>{s.v}</p>
+                    <p style={{ fontFamily: "'poppins',serif", fontSize: "1.1rem", fontWeight: 700, color: "#C8973A" }}>{s.v}</p>
                     <p style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.65rem", color: "rgba(42,31,20,0.5)", marginTop: 2 }}>{s.l}</p>
                   </div>
                   {i < 3 && <div className="w-px h-8 hidden sm:block" style={{ background: "rgba(200,151,58,0.2)" }} />}

@@ -87,7 +87,7 @@ const CartRow = ({ item, onQty, onRemove }) => {
 
       {/* Info */}
       <div className="flex-1 min-w-0 flex flex-col gap-1">
-        <h3 style={{ fontFamily: "'Playfair Display',serif", fontSize: "clamp(0.88rem,2.5vw,1rem)", fontWeight: 600, color: "#2A1F14", lineHeight: 1.3 }}>
+        <h3 style={{ fontFamily: "'poppins',serif", fontSize: "clamp(0.88rem,2.5vw,1rem)", fontWeight: 600, color: "#2A1F14", lineHeight: 1.3 }}>
           {item.product_name}
         </h3>
         {item.size && (
@@ -100,7 +100,7 @@ const CartRow = ({ item, onQty, onRemove }) => {
           {/* Qty control */}
           <div className="flex items-center gap-2">
             <QtyBtn onClick={() => onQty(item.product, item.quantity - 1)}><Minus size={12} /></QtyBtn>
-            <span style={{ fontFamily: "'Playfair Display',serif", fontSize: "1rem", fontWeight: 700, color: "#2A1F14", minWidth: 24, textAlign: "center" }}>
+            <span style={{ fontFamily: "'poppins',serif", fontSize: "1rem", fontWeight: 700, color: "#2A1F14", minWidth: 24, textAlign: "center" }}>
               {item.quantity}
             </span>
             <QtyBtn onClick={() => onQty(item.product, item.quantity + 1)}><Plus size={12} /></QtyBtn>
@@ -110,7 +110,7 @@ const CartRow = ({ item, onQty, onRemove }) => {
          <div className="text-right">
   <p
     style={{
-      fontFamily: "'Playfair Display',serif",
+      fontFamily: "'poppins',serif",
       fontSize: "1.1rem",
       fontWeight: 700,
       color: "#2A1F14",
@@ -231,9 +231,9 @@ const total = promoApplied
                 <Leaf size={9} /> Your Order
               </span>
             </div>
-            <h1 style={{ fontFamily: "'Playfair Display',serif", fontSize: "clamp(1.6rem,4vw,2.2rem)", fontWeight: 700, color: "#2A1F14", letterSpacing: "-0.02em", lineHeight: 1.1 }}>
+            <h1 style={{ fontFamily: "'poppins',serif", fontSize: "clamp(1.6rem,4vw,2.2rem)", fontWeight: 700, color: "#2A1F14", letterSpacing: "-0.02em", lineHeight: 1.1 }}>
               Shopping{" "}
-              <span style={{ fontFamily: "'Cormorant Garamond',serif", fontStyle: "italic", fontWeight: 400, background: "linear-gradient(90deg,#C8973A,#A67828)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+              <span style={{ fontFamily: "'poppins',serif", fontStyle: "italic", fontWeight: 400, background: "linear-gradient(90deg,#C8973A,#A67828)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
                 Cart
               </span>
               {cartItems.length > 0 && (
@@ -252,7 +252,7 @@ const total = promoApplied
                 <ShoppingBag size={28} style={{ color: "rgba(200,151,58,0.5)" }} />
               </div>
               <div>
-                <h2 style={{ fontFamily: "'Playfair Display',serif", fontSize: "1.4rem", fontWeight: 600, color: "#2A1F14", marginBottom: 8 }}>
+                <h2 style={{ fontFamily: "'poppins',serif", fontSize: "1.4rem", fontWeight: 600, color: "#2A1F14", marginBottom: 8 }}>
                   Your cart is empty
                 </h2>
                 <p style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.88rem", color: "rgba(42,31,20,0.45)", fontWeight: 300, lineHeight: 1.7 }}>
@@ -280,7 +280,7 @@ const total = promoApplied
                   style={{ background: "rgba(250,246,239,0.9)", border: "1px solid rgba(200,151,58,0.15)", backdropFilter: "blur(12px)", boxShadow: "0 4px 24px rgba(42,31,20,0.07)" }}>
                   <div className="px-5 sm:px-6 pt-5 pb-3 flex items-center justify-between"
                     style={{ borderBottom: "1px solid rgba(200,151,58,0.1)" }}>
-                    <h2 style={{ fontFamily: "'Playfair Display',serif", fontSize: "1rem", fontWeight: 600, color: "#2A1F14" }}>
+                    <h2 style={{ fontFamily: "'poppins',serif", fontSize: "1rem", fontWeight: 600, color: "#2A1F14" }}>
                       Cart Items
                     </h2>
                     <Link to="/shop" style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "0.7rem", color: "#C8973A", textDecoration: "none", letterSpacing: "0.06em", display: "flex", alignItems: "center", gap: 4 }}>
@@ -313,7 +313,7 @@ const total = promoApplied
                   <div className="cart-enter cart-d2 rounded-2xl overflow-hidden"
                     style={{ background: "rgba(250,246,239,0.9)", border: "1px solid rgba(200,151,58,0.15)", backdropFilter: "blur(12px)", boxShadow: "0 4px 24px rgba(42,31,20,0.07)" }}>
                     <div className="px-5 sm:px-6 pt-5 pb-3" style={{ borderBottom: "1px solid rgba(200,151,58,0.1)" }}>
-                      <h2 style={{ fontFamily: "'Playfair Display',serif", fontSize: "1rem", fontWeight: 600, color: "#2A1F14" }}>
+                      <h2 style={{ fontFamily: "'poppins',serif", fontSize: "1rem", fontWeight: 600, color: "#2A1F14" }}>
                         Saved for Later ({savedItems.length})
                       </h2>
                     </div>
@@ -325,10 +325,10 @@ const total = promoApplied
                             <img src={item.image || "/placeholder.svg"} alt={item.product_name} className="w-full h-full object-cover" />
                           </div>
                           <div className="flex-1 min-w-0">
-                            <p style={{ fontFamily: "'Playfair Display',serif", fontSize: "0.88rem", fontWeight: 600, color: "#2A1F14", lineHeight: 1.3 }}>
+                            <p style={{ fontFamily: "'poppins',serif", fontSize: "0.88rem", fontWeight: 600, color: "#2A1F14", lineHeight: 1.3 }}>
                               {item.product_name}
                             </p>
-                            <p style={{ fontFamily: "'Playfair Display',serif", fontSize: "0.85rem", fontWeight: 700, color: "#C8973A", marginTop: 2 }}>
+                            <p style={{ fontFamily: "'poppins',serif", fontSize: "0.85rem", fontWeight: 700, color: "#C8973A", marginTop: 2 }}>
                             ₹{formatPrice(item.price)}
                             </p>
                           </div>
@@ -367,7 +367,7 @@ const total = promoApplied
 
                   {/* Header */}
                   <div className="px-5 sm:px-6 pt-5 pb-4" style={{ borderBottom: "1px solid rgba(200,151,58,0.1)" }}>
-                    <h2 style={{ fontFamily: "'Playfair Display',serif", fontSize: "1rem", fontWeight: 600, color: "#2A1F14" }}>
+                    <h2 style={{ fontFamily: "'poppins',serif", fontSize: "1rem", fontWeight: 600, color: "#2A1F14" }}>
                       Order Summary
                     </h2>
                   </div>
@@ -464,8 +464,8 @@ const total = promoApplied
 
                       {/* Total */}
                       <div className="pt-3 flex items-center justify-between" style={{ borderTop: "1px solid rgba(200,151,58,0.18)" }}>
-                        <span style={{ fontFamily: "'Playfair Display',serif", fontSize: "1rem", fontWeight: 600, color: "#2A1F14" }}>Total</span>
-                        <span style={{ fontFamily: "'Playfair Display',serif", fontSize: "1.3rem", fontWeight: 800, color: "#2A1F14", letterSpacing: "-0.01em" }}>
+                        <span style={{ fontFamily: "'poppins',serif", fontSize: "1rem", fontWeight: 600, color: "#2A1F14" }}>Total</span>
+                        <span style={{ fontFamily: "'poppins',serif", fontSize: "1.3rem", fontWeight: 800, color: "#2A1F14", letterSpacing: "-0.01em" }}>
                          ₹{formatPrice(total)}
                         </span>
                       </div>
