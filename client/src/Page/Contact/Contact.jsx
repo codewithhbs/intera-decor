@@ -102,7 +102,7 @@ const Contact = () => {
   const handleFetchSetting = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:7913/api/v1/admin/settings"
+        "https://api.creativencolourful.com/api/v1/admin/settings"
       );
       setSettings(data.data);
     } catch (error) {
@@ -155,7 +155,7 @@ const Contact = () => {
     setIsLoading(true);
     try {
       const res = await axios.post(
-        "http://localhost:7913/api/v1/support-request",
+        "https://api.creativencolourful.com/api/v1/support-request",
         formData
       );
       setIsSubmitted(true);

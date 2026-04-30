@@ -145,7 +145,7 @@ export default function SuccessPageCOD() {
       try {
         setLoading(true);
         const res = await fetch(
-          `http://localhost:7913/api/v1/my-recent-cod-order/${encodeURIComponent(orderId)}`,
+          `https://api.creativencolourful.com/api/v1/my-recent-cod-order/${encodeURIComponent(orderId)}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
