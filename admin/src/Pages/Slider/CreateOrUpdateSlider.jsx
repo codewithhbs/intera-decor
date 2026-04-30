@@ -320,7 +320,7 @@ const handleSubmit = async (e) => {
           <input type="file" accept="image/*" onChange={handleImageChange} className="block w-full text-sm text-gray-500 file:mr-4 file:py-3 file:px-6 file:rounded-lg file:border-0 file:bg-amber-50 file:text-amber-700" />
           {imagePreview && (
             <div className="mt-4">
-              <img src={`http://api.interdecor.adsdigitalmedia.com${imagePreview}`} alt="Preview" className="w-64 h-40 object-cover rounded-xl border shadow" />
+              <img src={`https://api.creativencolourful.com${imagePreview}`} alt="Preview" className="w-64 h-40 object-cover rounded-xl border shadow" />
             </div>
           )}
         </div>

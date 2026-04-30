@@ -69,7 +69,7 @@ const AllSliders = () => {
                 <td className="px-6 py-4">
                   {slider.imageUrl && (
                     <img
-                      src={`http://api.interdecor.adsdigitalmedia.com${slider.imageUrl}`}
+                      src={`https://api.creativencolourful.com${slider.imageUrl}`}
                       alt={slider.imageAlt || "slider"}
                       className="w-16 h-16 object-cover rounded-lg border"
                     />
