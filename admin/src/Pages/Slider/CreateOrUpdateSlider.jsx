@@ -53,7 +53,7 @@ const CreateOrUpdateSlider = () => {
     if (isEdit) {
       const fetchSlider = async () => {
         try {
-          const res = await axios.get(`http://localhost:7913/api/v1/HeroSlider/${id}`);
+          const res = await axios.get(`https://api.creativencolourful.com/api/v1/HeroSlider/${id}`);
           const slider = res.data.data;
 
           setFormData({
@@ -171,8 +171,8 @@ const handleSubmit = async (e) => {
 
   try {
     const url = isEdit
-      ? `http://localhost:7913/api/v1/HeroSlider/${id}`
-      : "http://localhost:7913/api/v1/HeroSlider";
+      ? `https://api.creativencolourful.com/api/v1/HeroSlider/${id}`
+      : "https://api.creativencolourful.com/api/v1/HeroSlider";
 
     const config = {
       headers: {
